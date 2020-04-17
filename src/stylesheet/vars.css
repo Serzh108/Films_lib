@@ -1,10 +1,7 @@
 :root {
-  /* fonts */
-  --font-main: 'Montserrat', sans-serif;
-  --font-second: 'Acrom', sans-serif;
-  --font-color-main: 16px;
-
-  /* footer background-color */
-  --footer-bg: #a14f4f;
-  --header-bg: #102136;
+  --main-font: 'Roboto', sans-serif;
+  --main-font-size: 16px;
+  --mainTextColor: #212121;
+  --mainColor: #ff6b08;
+  --secondColor: #dd5d07;
 }

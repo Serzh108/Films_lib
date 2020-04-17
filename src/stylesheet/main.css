@@ -2,6 +2,8 @@
 @import './fonts.css';
 @import './vars.css';
 
+
+
 /* // COMPONENTS */
 /* @import '../components/buttons/buttons.css'; */
 
@@ -45,7 +47,10 @@ a {
 .container {
   width: 280px;
   margin: 0 auto;
+  outline: 3px solid peachpuff;
 }
+
+/* MEDIQ QUERIES */
 
 @media screen and (min-width: 768px) {
   /* width: 620px; */
@@ -59,3 +64,7 @@ a {
     width: 876px;
   }
 }
+
+
+/* PAGINATION */
+

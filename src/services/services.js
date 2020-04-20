@@ -6,11 +6,16 @@ export default {
     popularFilms: '/discover/movie',
     pupularityFilter: '&sort_by=popularity.desc',
     page: 1,
-    query: 'christ',
+    query: 'blood',
     // VIZEVAET FILMY PO ZAPROSY
     fetchFilms(){
         const requestStr = this.baseURL +this.searchPoint + this.key + `&query='${this.query}'` + `&page=${this.page}`;
-        return this.fetchRequest(requestStr).catch(error =>{
+        return this.fetchRequest(requestStr).then(data =>{
+            console.log(data.results);
+            const results = data.results;
+            return data;
+        })
+        .catch(error =>{
             console.log(error);
         });
         // return this.fetch(requestStr);
@@ -23,17 +28,26 @@ export default {
     // PEREVODIT V JSON NASHI ZAPROSY
     fetchRequest(requestStr){
         return fetch(requestStr).then(response => {
-            return response.json();
-        })
-        .then(data =>{
-            return data
+            const data = response.json();
+            return data;
         });
     },
     // VERNET FILM PO ID
     fetchId(id){
         const requestStr = `${this.baseURL}/movie/${id}${this.key}&language=en-US`;
         return fetch(requestStr)
-        .then(response => response.json());
+        .then(response => response.json())
+        .then(film =>{
+            // const genres = film.genres;
+            // const readyFilms = film;
+            // const reducedGenres = genres.reduce((arr,elem)=>{
+            //     arr.push(elem.name);
+            //     return arr;
+            // },[]);
+            // readyFilms.genres = reducedGenres;
+            // return readyFilms
+            return this.getExactGenres(film);
+        });
     },
     //VERNET ZHANRY
     fetchGenres(){
@@ -81,5 +95,14 @@ export default {
     filteredGenres(arr, id){
         return arr.filter(elem => elem.id === id);
     },
-    
+    getExactGenres(obj){
+        const genres = obj.genres;
+        const readyFilms = obj;
+        const reducedGenres = genres.reduce((arr,elem)=>{
+            arr.push(elem.name);
+            return arr;
+        },[]);
+        readyFilms.genres = reducedGenres;
+        return readyFilms
+    }
 }

@@ -80,3 +80,9 @@ a {
 .heart-icon:hover{
   fill: orange;
 }
+
+/*CLASS FOR TOGGLING DISPLAY NONE */
+
+.invisible{
+  display: none;
+}

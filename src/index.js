@@ -8,3 +8,6 @@ import './components/form/form';
 import './components/header/header';
 import './components/localStorage/localStorage';
 import './components/pagination/pagination';
+
+// TIMUR
+import './components/pagination/pagination.css';

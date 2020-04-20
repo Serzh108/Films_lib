@@ -3,11 +3,6 @@
 @import './vars.css';
 
 
-
-/* // COMPONENTS */
-/* @import '../components/buttons/buttons.css'; */
-
-
 html {
   box-sizing: border-box;
 }
@@ -44,27 +39,25 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   width: 280px;
   margin: 0 auto;
-  outline: 3px solid peachpuff;
+  outline: 3px solid peachpuff;  /* TEMP!!! */
 }
 
 /* MEDIQ QUERIES */
 
 @media screen and (min-width: 768px) {
-  /* width: 620px; */
   .container{
     width: 620px;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* width: 876px; */
   .container{
     width: 876px;
   }
 }
-
-
-/* PAGINATION */
-

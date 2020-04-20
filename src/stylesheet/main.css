@@ -2,11 +2,8 @@
 @import './fonts.css';
 @import './vars.css';
 
-<<<<<<< HEAD
 /* // COMPONENTS */
 /* @import '../components/buttons/buttons.css'; */
-=======
->>>>>>> dev
 
 html {
   box-sizing: border-box;
@@ -51,7 +48,6 @@ ul {
 .container {
   width: 280px;
   margin: 0 auto;
-  outline: 3px solid peachpuff; /* TEMP!!! */
 }
 
 /* MEDIQ QUERIES */
@@ -65,4 +61,27 @@ ul {
   .container {
     width: 876px;
   }
+}
+
+
+/* PAGINATION */
+
+.heart-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 300px;
+  width: 300px;
+  fill:  blue;
+}
+
+.heart-icon:hover{
+  fill: orange;
+}
+
+/*CLASS FOR TOGGLING DISPLAY NONE */
+
+.invisible{
+  display: none;
 }

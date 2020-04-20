@@ -2,15 +2,16 @@
 @import './fonts.css';
 @import './vars.css';
 
-
-
 /* // COMPONENTS */
 /* @import '../components/buttons/buttons.css'; */
 
+<<<<<<< HEAD
 ul {
   list-style: none;
 }
 
+=======
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 html {
   box-sizing: border-box;
 }
@@ -47,6 +48,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   width: 280px;
   margin: 0 auto;
@@ -55,14 +60,12 @@ a {
 /* MEDIQ QUERIES */
 
 @media screen and (min-width: 768px) {
-  /* width: 620px; */
-  .container{
+  .container {
     width: 620px;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* width: 876px; */
-  .container{
+  .container {
     width: 876px;
   }
 }
@@ -70,3 +73,22 @@ a {
 
 /* PAGINATION */
 
+.heart-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 300px;
+  width: 300px;
+  fill:  blue;
+}
+
+.heart-icon:hover{
+  fill: orange;
+}
+
+/*CLASS FOR TOGGLING DISPLAY NONE */
+
+.invisible{
+  display: none;
+}

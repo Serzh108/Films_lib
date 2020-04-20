@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import '../../stylesheet/main.css';
 /* @import '../../stylesheet/vars.css';
 @import '../../stylesheet/fonts.css' */
@@ -7,16 +8,30 @@
 } */
 
 
+=======
+/* @import '../../stylesheet/main.css'; */
+/* @import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css' */
+ul {
+  list-style: none;
+}
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 .filmsList {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+<<<<<<< HEAD
 
 .filmsList_item:not(:last-child) {
   margin-bottom: 20px;
 }
 
+=======
+.filmsList_item:not(:last-child) {
+  margin-bottom: 20px;
+}
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 .filmsList_item-title {
   font-family: 'Roboto';
   font-size: 12px;
@@ -24,16 +39,25 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+<<<<<<< HEAD
 
 .filmsList-item-img {
 
 }
 
+=======
+.filmsList-item-img {
+  width: 272px;
+}
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 .filmsList_decsription-wrapper {
   display: flex;
   justify-content: flex-start
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 .filmsList_description-item {
   font-family: 'Roboto';
   font-weight: 600;
@@ -42,7 +66,10 @@
   font-weight: 400;
   color: #ff6b08;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 .filmsList_item-popular {
   display: inline-block;
   font-family: 'Roboto';
@@ -53,6 +80,7 @@
   background-color: #ff6b08;
   border-radius: 5px;
   padding: 0 10px;
+<<<<<<< HEAD
 
 
 }
@@ -62,12 +90,19 @@
 
 }
 
+=======
+}
+.filmsList_description-item:not(:last-child) {
+  padding-right: 5px;
+}
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 @media screen and (min-width: 768px) {
   .filmsList {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
+<<<<<<< HEAD
 
   .filmsList_item:nth-last-child(-n +2) {
     margin-bottom: 0px;
@@ -76,6 +111,12 @@
 
 }
 
+=======
+  .filmsList_item:nth-last-child(-n +2) {
+    margin-bottom: 0px;
+  }
+}
+>>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
 @media screen and (min-width: 1024px) {
   .filmsList_item:nth-last-child(-n + 3) {
     margin-bottom: 0px;

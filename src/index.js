@@ -12,4 +12,5 @@ import './components/pagination/pagination';
 // TIMUR
 
 import './components/pagination/pagination.css'
+import './components/details/details.css'
 

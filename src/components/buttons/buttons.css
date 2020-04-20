@@ -1,4 +1,75 @@
-h1 {
+/*h1 {
   color: red;
 }
-/* test */
+ test */
+.header_btn_wraper {
+}
+
+.btn_details_wraper {
+}
+
+.button_watched,
+.button_queue,
+.button_addwatched,
+.button_addqueue {
+  font-size: 12px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.333;
+  text-align: center;
+  /* margin: 0 auto; */
+  margin-right: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  width: 130px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.button_watched:hover,
+.button_queue:hover,
+.button_addwatched:hover,
+.button_addqueue:hover {
+  background-color: var(--secondColor);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+.button_queue {
+  margin-right: 0;
+}
+
+.button_addwatched,
+.button_addqueue {
+  margin-right: 14px;
+  color: black;
+  width: 136px;
+}
+
+.button_addqueue {
+  width: 120px;
+  margin-right: 0;
+}
+
+.button_active {
+  background-color: var(--mainColor);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .button_watched,
+  .button_queue {
+    margin-right: 14px;
+    width: 136px;
+  }
+  .button_queue {
+    margin-right: 0;
+  }
+  .btn_details_wraper {
+    /* ??? */
+    text-align: left;
+  }
+}

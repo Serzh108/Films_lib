@@ -2,11 +2,8 @@
 @import './fonts.css';
 @import './vars.css';
 
-<<<<<<< HEAD
 /* // COMPONENTS */
 /* @import '../components/buttons/buttons.css'; */
-=======
->>>>>>> dev
 
 html {
   box-sizing: border-box;
@@ -51,7 +48,6 @@ ul {
 .container {
   width: 280px;
   margin: 0 auto;
-  outline: 3px solid peachpuff; /* TEMP!!! */
 }
 
 /* MEDIQ QUERIES */

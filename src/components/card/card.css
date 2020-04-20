@@ -1,0 +1,65 @@
+/* @import '../../stylesheet/main.css'; */
+/* @import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css' */
+ul {
+  list-style: none;
+}
+.filmsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.filmsList_item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.filmsList_item-title {
+  font-family: 'Roboto';
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.filmsList-item-img {
+  width: 272px;
+}
+.filmsList_decsription-wrapper {
+  display: flex;
+  justify-content: flex-start
+}
+.filmsList_description-item {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #ff6b08;
+}
+.filmsList_item-popular {
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+  background-color: #ff6b08;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.filmsList_description-item:not(:last-child) {
+  padding-right: 5px;
+}
+@media screen and (min-width: 768px) {
+  .filmsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .filmsList_item:nth-last-child(-n +2) {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .filmsList_item:nth-last-child(-n + 3) {
+    margin-bottom: 0px;
+  }
+}

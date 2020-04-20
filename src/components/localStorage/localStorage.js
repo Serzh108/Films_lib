@@ -1,3 +1,4 @@
+// ==============  for TEST =================
 const watched = {
   id: 1,
   originalTitle: 'Batmen',
@@ -50,8 +51,8 @@ const next = {
 
 // deleteItemLocalStorage('queue', 2);
 
-// =======================***===================
-// ======================= object =================
+// ==============  /for TEST =================
+// ======================= object ============
 const myLibrary = {
   itemArray: [],
 
@@ -103,79 +104,5 @@ const myLibrary = {
     this.itemArray = [];
   },
 };
-// ======================== test ==============
 
-// myLibrary.setLocalStorage('watched', watched);
-myLibrary.setLocalStorage('watched', queue);
-myLibrary.setLocalStorage('queue', queue);
-myLibrary.setLocalStorage('queue', watched);
-myLibrary.setLocalStorage('queue', next);
-// myLibrary.getLocalStorage('queue');
-
-const x2 = myLibrary.getItemLocalStorage('watched', 2);
-const x3 = myLibrary.getItemLocalStorage('queue');
-console.log('query watched id=1 :', x2);
-console.log('query queue no id :', x3);
-
-myLibrary.deleteItemLocalStorage('watched', 2);
-// ======================= /object =================
-
-// function setLocalStorage(key, value) {
-//   const item = localStorage.getItem(key);
-//   if (item !== null) {
-//     itemArray = JSON.parse(item);
-//   }
-//   itemArray.push(value);
-//   localStorage.setItem(key, JSON.stringify(itemArray));
-//   itemArray = [];
-// }
-
-// function getLocalStorage(key) {
-//   const item = localStorage.getItem(key);
-//   if (item !== null) {
-//     itemArray = JSON.parse(item);
-//   }
-//   // console.log(`${key}: `, itemArray, typeof itemArray);
-//   const [...result] = itemArray;
-//   itemArray = [];
-//   return result;
-// }
-
-// function getItemLocalStorage(key, id) {
-//   let result;
-//   const item = localStorage.getItem(key);
-//   if (item !== null) {
-//     itemArray = JSON.parse(item);
-//   }
-//   if (!id) {
-//     [...result] = itemArray;
-//   } else {
-//     result = itemArray.find(el => id === el.id);
-//   }
-//   itemArray = [];
-//   return result;
-// }
-
-// function deleteItemLocalStorage(key, id) {
-//   const item = localStorage.getItem(key);
-//   if (item !== null) {
-//     itemArray = JSON.parse(item);
-//     // const result = itemArray.filter(el => el.id !== id);
-//     // localStorage.setItem(key, JSON.stringify(result));
-//     // itemArray = [];
-//   } else {
-//     const err = 'Not finded!';
-//     return err;
-//   }
-//   const result = itemArray.filter(el => el.id !== id);
-//   localStorage.setItem(key, JSON.stringify(result));
-//   itemArray = [];
-// }
-
-// function testEmptyLocalStorage(key) {
-//   const item = localStorage.getItem(key);
-//   if (item !== null) {
-//     const filmArray = JSON.parse(item);
-//     return filmArray;
-//   }
-// }
+export default myLibrary;

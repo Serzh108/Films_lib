@@ -1,22 +1,19 @@
-.details_container {
+.singleMoviePreview {
     padding-top: 20px;
   }
-  
   .details_img {
     border-radius: 2%;
     width: 280px;
     height: 400px;
   }
-  
   .film_name {
     font-size: 20px;
-    font-family: "Roboto";
+    font-family: var(--main-font);
     color: rgb(0, 0, 0);
     text-transform: uppercase;
     line-height: 1.5;
     margin-top: 34px;
   }
-  
   .details_text {
     font-size: 12px;
     font-family: "Roboto";
@@ -24,7 +21,6 @@
     line-height: 1.333;
     padding-top: 15px;
   }
-  
   .vote_info {
     display: inline-block;
     border-radius: 5px;
@@ -39,7 +35,6 @@
     margin-left: 45px;
     margin-right: 5px;
   }
-  
   .votes_info {
     display: inline-block;
     font-size: 12px;
@@ -52,28 +47,22 @@
     padding: 2px 8px 2px 5px;
     margin-left: 5px;
   }
-  
   .main_info {
     font-size: 12px;
     font-family: "Roboto";
     color: rgb(0, 0, 0);
     line-height: 1.333;
   }
-  
   .title_info {
     text-transform: uppercase;
     margin-left: 50px;
-  
   }
-  
   .popularity-info {
     margin-left: 60px;
   }
-  
   .genre_info {
     margin-left: 82px;
   }
-  
   .details_description {
     font-size: 11px;
     font-family: "Roboto";
@@ -81,33 +70,28 @@
     line-height: 1.818;
     padding-bottom: 35px;
   }
-  
   .about_info {
     padding-top: 35px;
     padding-bottom: 15px;
   }
-  
   @media (min-width:768px) {
-    .details_container {
+    .singleMoviePreview{
       display: flex;
       justify-content: space-between;
       padding-top: 55px;
     }
-  
     .details_img {
+      object-fit: cover;
       margin-right: 30px;
       width: 296px;
       height: 420px;
     }
-  
     .film_name {
       margin-top: 0px;
       font-size: 25px;
       line-height: 1.4;
     }
   }
-  
-  
   @media (min-width:1024px) {
     body{
       background-color: #red;

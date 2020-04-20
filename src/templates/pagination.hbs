@@ -1,0 +1,26 @@
+
+    <li class="page-list__item arrow left">
+
+    </li>
+    <li class="page-list__item page-ends">
+        1
+    </li>
+    <li class="page-list__item page-ends">
+        ...
+    </li>
+    {{#each pageItems}}
+    <li class="page-list__item">
+        {{this}}
+    </li>
+    {{/each}}
+
+    <li class="page-list__item page-ends">
+        ...
+    </li>
+
+    <li class="page-list__item page-ends last-page">
+        {{totalPages}}
+    </li>
+    <li class="page-list__item arrow right">
+
+    </li>

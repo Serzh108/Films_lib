@@ -7,6 +7,9 @@
 /* // COMPONENTS */
 /* @import '../components/buttons/buttons.css'; */
 
+ul {
+  list-style: none;
+}
 
 html {
   box-sizing: border-box;
@@ -47,7 +50,6 @@ a {
 .container {
   width: 280px;
   margin: 0 auto;
-  outline: 3px solid peachpuff;
 }
 
 /* MEDIQ QUERIES */

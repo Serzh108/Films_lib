@@ -4,4 +4,5 @@ export default {
     pagination: document.querySelector('.page-list'),
     lastPage: document.querySelector('.last-page'),
     singleMoviePreview: document.querySelector('.singleMoviePreview'),
+    headerMain: document.querySelector('.js_header'),
 };

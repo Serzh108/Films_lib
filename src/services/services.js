@@ -10,11 +10,7 @@ export default {
     // VIZEVAET FILMY PO ZAPROSY
     fetchFilms(){
         const requestStr = this.baseURL +this.searchPoint + this.key + `&query='${this.query}'` + `&page=${this.page}`;
-        return this.fetchRequest(requestStr).then(data =>{
-            console.log(data.results);
-            const results = data.results;
-            return data;
-        })
+        return this.fetchRequest(requestStr)
         .catch(error =>{
             console.log(error);
         });
@@ -28,9 +24,8 @@ export default {
     // PEREVODIT V JSON NASHI ZAPROSY
     fetchRequest(requestStr){
         return fetch(requestStr).then(response => {
-            const data = response.json();
-            return data;
-        });
+            return response.json();
+        })
     },
     // VERNET FILM PO ID
     fetchId(id){

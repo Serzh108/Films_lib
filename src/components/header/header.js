@@ -146,7 +146,7 @@ function setActiveItem(e) {
 // };
 
 // ===============================================
-function moveToDetails() {
+export default()=>{
   const liItems = headerList.children;
   liItems[0].classList.remove('active');
   liItems[1].classList.remove('active');

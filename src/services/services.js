@@ -114,6 +114,8 @@ export default {
           refs.mainSection.classList.add('invisible');
           refs.singleMoviePreview.classList.remove('invisible');
           movieDetails.showMovieDetails(currentMovieId);
+
+
         }
 
         // -----------------

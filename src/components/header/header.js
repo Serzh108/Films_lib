@@ -73,7 +73,7 @@ function queryHandler(e) {
   const searchQuery = e.currentTarget.elements.search.value;
   //   console.log('searchQuery = ', searchQuery);  // TEMP!!!
   movie.query = searchQuery;
-  console.log(movie.query);
+  movie.page = 1;
   movie
     .fetchMovies()
     .then(films => {
@@ -99,8 +99,12 @@ function queryHandler(e) {
 }
 
 const headerLogo = document.querySelector('.js_header_logo');
-headerLogo.addEventListener('click', moveToDetails);
+headerLogo.addEventListener('click', getPop);
 
+function getPop(e){
+    console.log(e.target)
+    movie.fetchPopularMovies();
+}
 
 function setActiveItem(e) {
   if (e.target.nodeName !== 'LI') {

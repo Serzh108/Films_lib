@@ -1,4 +1,9 @@
 import './header.css';
+import movie from '../../services/services';
+import movieListTemplate from '../../templates/card.hbs';
+import refs from '../../services/refs';
+import myLibrary from '../localStorage/localStorage'; // ???
+import pagination from '../../components/pagination/pagination'
 
 const headerMarkup = `<div class="header__main container">
 <div href="#" class="header__logo js_header_logo">
@@ -12,10 +17,10 @@ const headerMarkup = `<div class="header__main container">
 </div>
 <!--Input Vova-->
 <div class="search-input js_search-input container active">
-<form class="search_form">
-<input type="text" name="search" class="header_input" placeholder="Поиск фильмов" />
-</form>
-<p class="error_message ">Search result not successful. Enter the correct movie name and try again.</p>
+  <form class="search_form">
+    <input type="text" name="search" class="header_input" placeholder="Поиск фильмов" />
+  </form>
+  <p class="error_message ">Search result not successful. Enter the correct movie name and try again.</p>
 </div>
 <!--Button Vova-->
 <div class="header_btn_wraper js_header_btn_wraper container">
@@ -26,20 +31,67 @@ const headerMarkup = `<div class="header__main container">
 
 const headerMain = document.querySelector('.js_header');
 
-headerMain.insertAdjacentHTML('beforeend', headerMarkup);
+refs.headerMain.insertAdjacentHTML('beforeend', headerMarkup);
 
-const headerLogo = document.querySelector('.js_header_logo');
 const headerList = document.querySelector('.js_header_list');
 const searchInput = document.querySelector('.js_search-input');
 const buttonLib = document.querySelector('.js_header_btn_wraper');
-
+const buttonWatched = document.querySelector('.button_watched');
+const buttonQueue = document.querySelector('.button_queue');
 
 headerList.addEventListener('click', setActiveItem);
 
-function setActiveItem(e) {
+const searchQuery = document.querySelector('.search_form');
+// console.log('search_form = ', searchQuery);
+// console.log('search_form.elements = ', searchQuery.elements.search);
+searchQuery.addEventListener('submit', queryHandler);
 
+function queryHandler(e) {
+  e.preventDefault();
+  if (e.currentTarget.elements.search.value === '') {
+    console.log('Search query is empty!!');
+    return;
+  }
+  // if (e.target.nodeName !=='FORM') { return }
+  const searchQuery = e.currentTarget.elements.search.value;
+  //   console.log('searchQuery = ', searchQuery);  // TEMP!!!
+  movie.query = searchQuery;
+  movie.page = 1;
+  movie
+    .fetchMovies()
+    .then(films => {
+      return films;
+    })
+    .then(filmsArr => {
+      return filmsArr.reduce((str, elem) => {
+        str += movieListTemplate(elem);
+        return str;
+      }, '');
+    })
+    .then(string => {
+      // console.log(string);
+      buildMarkUp(string);
+    });
+
+  function buildMarkUp(templateResult) {
+    refs.movieList.innerHTML = templateResult;
+  }
+
+  pagination();
+
+}
+
+const headerLogo = document.querySelector('.js_header_logo');
+headerLogo.addEventListener('click', getPop);
+
+function getPop(e){
+    console.log(e.target)
+    movie.fetchPopularMovies();
+}
+
+function setActiveItem(e) {
   if (e.target.nodeName !== 'LI') {
-    return
+    return;
   }
   const liItems = headerList.children;
 
@@ -48,11 +100,16 @@ function setActiveItem(e) {
 
   e.target.classList.add('active');
 
-  if (headerMain.classList.contains('library')) {
-    headerMain.classList.remove('library');
+  // === was details ===
+  if (refs.headerMain.classList.contains('details')) {
+    refs.headerMain.classList.remove('details');
+  }
+
+  if (refs.headerMain.classList.contains('library')) {
+    refs.headerMain.classList.remove('library');
   }
   if (e.target.dataset.position !== 'home') {
-    headerMain.classList.add(e.target.dataset.position);
+    refs.headerMain.classList.add(e.target.dataset.position);
   }
 
   buttonLib.classList.remove('active');
@@ -63,4 +120,104 @@ function setActiveItem(e) {
   } else {
     buttonLib.classList.add('active');
   }
-};
+}
+
+// headerLogo.addEventListener('click', setPopularFilm);
+
+// function setPopularFilm(e) {
+
+// };
+
+// ===============================================
+export default()=>{
+  const liItems = headerList.children;
+  liItems[0].classList.remove('active');
+  liItems[1].classList.remove('active');
+
+  buttonLib.classList.remove('active');
+  searchInput.classList.remove('active');
+
+  if (refs.headerMain.classList.contains('library')) {
+    refs.headerMain.classList.remove('library');
+  }
+
+  refs.headerMain.classList.add('details');
+}
+// // =============== For Illia ===============
+// buttonWatched.addEventListener('click', clickButtonWatched);
+// buttonQueue.addEventListener('click', clickButtonQueue);
+
+// function clickButtonWatched() {
+//   console.log('button Watched clicked!'); // temp!
+//   buttonQueue.classList.remove('active');
+//   buttonWatched.classList.remove('active');
+
+//   buttonWatched.classList.add('active');
+//   // call function read from LocalStorage & markUp
+//   const watchedArray = myLibrary.getItemLocalStorage('watched');
+//   console.log('watchedArray: ', watchedArray); // temp!
+//   //temp!!!
+//   refs.movieList.innerHTML = '';
+//   refs.movieList.innerHTML = '<li>T E S T</li>';
+//   // x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
+// }
+
+// function clickButtonQueue() {
+//   console.log('button Queue clicked!'); // temp!
+//   buttonWatched.classList.remove('active');
+//   buttonQueue.classList.remove('active');
+
+//   buttonQueue.classList.add('active');
+//   // call function read from LocalStorage & markUp
+//   const queueArray = myLibrary.getItemLocalStorage('queue');
+//   console.log('queueArray: ', queueArray); // temp!
+// }
+
+movie.fetchPopularMovies();
+
+
+
+
+// =================================================
+// ============ For Yulia ================
+// const buttonAddWatched = document.querySelector('.button_addwatched');
+// const buttonAddQueue = document.querySelector('.button_addqueue');
+
+// buttonAddWatched.addEventListener('click', clickButtonAddWatched);
+// buttonAddQueue.addEventListener('click', clickButtonAddQueue);
+
+// function clickButtonAddWatched() {
+//   console.log('button AddWatched clicked!'); // temp!
+//   buttonAddQueue.classList.remove('active');
+//   buttonAddWatched.classList.remove('active');
+
+//   buttonAddWatched.classList.add('active');
+//   // проверка, есть ли данный фильм в  LocalStorage
+//   if(myLibrary.getItemLocalStorage('watched', id)) { //  film id 
+//     // есть, меняем текст кнопки
+//   } else {
+//     // добавляем в очередь
+//   }
+//если есть то меняем текст кнопки на delete
+
+
+// call function read from LocalStorage & markUp
+// const watchedArray = myLibrary.getItemLocalStorage('watched');
+// console.log('watchedArray: ', watchedArray); // temp!
+//temp!!!
+// const x = document.querySelector('.js_filmsList');
+// x.innerHTML = '';
+// x.innerHTML = '<li>T E S T</li>'; 
+// x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
+// }
+
+// function clickButtonAddQueue() {
+//   console.log('button AddQueue clicked!'); // temp!
+//   buttonAddWatched.classList.remove('active');
+//   buttonAddQueue.classList.remove('active');
+
+//   buttonAddQueue.classList.add('active');
+// call function read from LocalStorage & markUp
+// const queueArray = myLibrary.getItemLocalStorage('queue');
+// console.log('queueArray: ', queueArray); // temp!
+// }

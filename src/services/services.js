@@ -94,6 +94,7 @@ export default {
         })
         // console.log(mappedFilms);
         this.maxPage = result[1].total_pages;
+
         return mappedFilms
     })
   },

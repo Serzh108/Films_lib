@@ -3,6 +3,7 @@ import movie from '../../services/services';
 import movieListTemplate from '../../templates/card.hbs';
 import refs from '../../services/refs';
 import myLibrary from '../localStorage/localStorage'; // ???
+import pagination from '../../components/pagination/pagination'
 
 const headerMarkup = `
 <div class="header__main container">
@@ -61,6 +62,7 @@ const searchQuery = document.querySelector('.search_form');
 // console.log('search_form = ', searchQuery);
 // console.log('search_form.elements = ', searchQuery.elements.search);
 searchQuery.addEventListener('submit', queryHandler);
+
 function queryHandler(e) {
   e.preventDefault();
   if (e.currentTarget.elements.search.value === '') {
@@ -71,16 +73,12 @@ function queryHandler(e) {
   const searchQuery = e.currentTarget.elements.search.value;
   //   console.log('searchQuery = ', searchQuery);  // TEMP!!!
   movie.query = searchQuery;
-  console.log(movie.query);
+  movie.page = 1;
   movie
     .fetchMovies()
     .then(films => {
       return films;
     })
-    // movie.fetchFilms().then(films =>  {
-    //     // console.log(films.results);
-    //     return films.results
-    // })
     .then(filmsArr => {
       return filmsArr.reduce((str, elem) => {
         str += movieListTemplate(elem);
@@ -91,14 +89,22 @@ function queryHandler(e) {
       // console.log(string);
       buildMarkUp(string);
     });
+
   function buildMarkUp(templateResult) {
     refs.movieList.innerHTML = templateResult;
   }
+
+  pagination();
+
 }
 
 const headerLogo = document.querySelector('.js_header_logo');
-headerLogo.addEventListener('click', moveToDetails);
+headerLogo.addEventListener('click', getPop);
 
+function getPop(e){
+    console.log(e.target)
+    movie.fetchPopularMovies();
+}
 
 function setActiveItem(e) {
   if (e.target.nodeName !== 'LI') {
@@ -140,7 +146,7 @@ function setActiveItem(e) {
 // };
 
 // ===============================================
-function moveToDetails() {
+export default()=>{
   const liItems = headerList.children;
   liItems[0].classList.remove('active');
   liItems[1].classList.remove('active');
@@ -159,7 +165,7 @@ buttonWatched.addEventListener('click', clickButtonWatched);
 buttonQueue.addEventListener('click', clickButtonQueue);
 
 function clickButtonWatched() {
-  console.log('button Watched clicked!');// temp!
+  console.log('button Watched clicked!'); // temp!
   buttonQueue.classList.remove('active');
   buttonWatched.classList.remove('active');
 
@@ -169,7 +175,7 @@ function clickButtonWatched() {
   console.log('watchedArray: ', watchedArray); // temp!
   //temp!!!
   refs.movieList.innerHTML = '';
-  refs.movieList.innerHTML = '<li>T E S T</li>'; 
+  refs.movieList.innerHTML = '<li>T E S T</li>';
   // x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
 }
 
@@ -179,10 +185,16 @@ function clickButtonQueue() {
   buttonQueue.classList.remove('active');
 
   buttonQueue.classList.add('active');
-    // call function read from LocalStorage & markUp
-    const queueArray = myLibrary.getItemLocalStorage('queue');
-    console.log('queueArray: ', queueArray); // temp!
+  // call function read from LocalStorage & markUp
+  const queueArray = myLibrary.getItemLocalStorage('queue');
+  console.log('queueArray: ', queueArray); // temp!
 }
+
+movie.fetchPopularMovies();
+
+
+
+
 // =================================================
 // ============ For Yulia ================
 // const buttonAddWatched = document.querySelector('.button_addwatched');
@@ -203,17 +215,17 @@ function clickButtonQueue() {
 //   } else {
 //     // добавляем в очередь
 //   }
-  //если есть то меняем текст кнопки на delete
+//если есть то меняем текст кнопки на delete
 
 
-  // call function read from LocalStorage & markUp
-  // const watchedArray = myLibrary.getItemLocalStorage('watched');
-  // console.log('watchedArray: ', watchedArray); // temp!
-  //temp!!!
-  // const x = document.querySelector('.js_filmsList');
-  // x.innerHTML = '';
-  // x.innerHTML = '<li>T E S T</li>'; 
-  // x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
+// call function read from LocalStorage & markUp
+// const watchedArray = myLibrary.getItemLocalStorage('watched');
+// console.log('watchedArray: ', watchedArray); // temp!
+//temp!!!
+// const x = document.querySelector('.js_filmsList');
+// x.innerHTML = '';
+// x.innerHTML = '<li>T E S T</li>'; 
+// x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
 // }
 
 // function clickButtonAddQueue() {
@@ -222,7 +234,7 @@ function clickButtonQueue() {
 //   buttonAddQueue.classList.remove('active');
 
 //   buttonAddQueue.classList.add('active');
-    // call function read from LocalStorage & markUp
-    // const queueArray = myLibrary.getItemLocalStorage('queue');
-    // console.log('queueArray: ', queueArray); // temp!
+// call function read from LocalStorage & markUp
+// const queueArray = myLibrary.getItemLocalStorage('queue');
+// console.log('queueArray: ', queueArray); // temp!
 // }

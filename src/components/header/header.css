@@ -10,9 +10,9 @@
   background-image: url(../../assets/images/watched_bg_m.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 
- .header.details {
+.header.details {
   background-image: url(../../assets/images/details_bg_m.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,6 +24,10 @@
   justify-content: space-between;
   padding-top: 46px;
   padding-bottom: 42px;
+}
+
+.header__logo {
+  cursor: pointer;
 }
 
 .header__logo-svg {
@@ -156,10 +160,26 @@
   height: 44px;
   cursor: pointer;
 }
+
+.button_watched.active,
+.button_queue.active,
+.button_addwatched.active,
+.button_addqueue.active {
+  background-color: var(--mainColor);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
 .button_watched:hover,
 .button_queue:hover,
 .button_addwatched:hover,
-.button_addqueue:hover {
+.button_addqueue:hover
+/* , */
+/* .button_watched.active,
+.button_queue.active,
+.button_addwatched.active,
+.button_addqueue.active */
+{ 
   background-color: var(--secondColor);
   color: rgb(255, 255, 255);
   border: none;
@@ -185,17 +205,17 @@
 
 /*Button Vova*/
 .button_watched,
-  .button_queue {
-    margin-right: 14px;
-    width: 136px;
-  }
-  .button_queue {
-    margin-right: 0;
-  }
-  .btn_details_wraper {
-    /* ??? */
-    text-align: left;
-  }
+.button_queue {
+  margin-right: 14px;
+  width: 136px;
+}
+.button_queue {
+  margin-right: 0;
+}
+.btn_details_wraper {
+  /* ??? */
+  text-align: left;
+}
 
 /*---Tablet---*/
 @media screen and (min-width: 768px) {
@@ -210,13 +230,13 @@
 
   .header.library {
     background-image: url(../../assets/images/watched_bg_t.jpg);
-  } 
-  
-   .header.details {
-    background-image: url(../../assets/images/details_bg_t.jpg);
-      padding-bottom: 110px;
   }
-  
+
+  .header.details {
+    background-image: url(../../assets/images/details_bg_t.jpg);
+    padding-bottom: 110px;
+  }
+
   .search-input {
     padding-bottom: 51px;
   }
@@ -228,7 +248,7 @@
   .header__logo span {
     display: inline-block;
   }
-/*Input Vova*/
+  /*Input Vova*/
   .search_form {
     width: 340px;
   }
@@ -242,9 +262,9 @@
 
   .header.library {
     background-image: url(../../assets/images/watched_bg_d.jpg);
-  } 
-  
-   .header.details {
+  }
+
+  .header.details {
     background-image: url(../../assets/images/details_bg_d.jpg);
   }
 

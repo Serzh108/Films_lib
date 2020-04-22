@@ -4,9 +4,8 @@ import refs from '../../services/refs';
 import movie from '../../services/services'
 
 export default ()=>{
-    movie.fetchFilms().then(films =>  {
-        // console.log(films.results);
-        return films.results
+    movie.fetchMovies().then(films => {
+        return films
     })
     .then(filmsArr =>{
         return filmsArr.reduce((str, elem)=>{

@@ -3,6 +3,8 @@ import refs from '../services/refs';
 import movieDetails from '../components/details/details'
 import changeHeaderBg from '../components/header/header'
 
+
+
 export default {
   baseURL: 'https://api.themoviedb.org/3',
   key: '?api_key=20f20d883cac0d777d3eec349954fec5',
@@ -31,6 +33,7 @@ export default {
             elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
           }
           elem.popularity = elem.popularity.toFixed(1);
+
           if (elem.original_title.length > 35) {
             elem.original_title = elem.original_title.slice(0, 35) + '...';
           }
@@ -47,6 +50,7 @@ export default {
             elem.genre_ids = elem.genre_ids.slice(0, 2)
           };
           elem.genre_ids = elem.genre_ids.slice(',').join(', ');
+
 
         })
         this.maxPage = result[1].total_pages;
@@ -79,6 +83,7 @@ export default {
       })
 
 
+
   },
   fetchMovies() {
     const fetchGenres = this.fetchGenres();
@@ -97,6 +102,7 @@ export default {
             elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
           }
           elem.popularity = elem.popularity.toFixed(1);
+
           elem.release_date = elem.release_date.slice(0, 4);
           elem.genre_ids = elem.genre_ids.map(genreNum => {
             const foundGenre = genreList.find(genreId => {
@@ -109,6 +115,7 @@ export default {
         })
         // console.log(mappedFilms);
         this.maxPage = result[1].total_pages;
+
         refs.movieList.addEventListener('click', handleListItemClick);
 
         function handleListItemClick(e) {
@@ -161,6 +168,7 @@ export default {
         film.poster_path = 'https://image.tmdb.org/t/p/w500' + film.poster_path;
         film.popularity = film.popularity.toFixed(1);
         film.release_date = film.release_date.slice(0, 4);
+
         return this.getExactGenres(film);
       });
   },

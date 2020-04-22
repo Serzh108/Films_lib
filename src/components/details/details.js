@@ -72,6 +72,7 @@ function addToWatched(film) {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
   if (!watchedFilmsArray) {
     watchedFilmsArray = [];
+
   }
   watchedFilmsArray.push(film);
   localStorage.setItem("watched-films", JSON.stringify(watchedFilmsArray));

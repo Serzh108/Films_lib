@@ -1,3 +1,6 @@
+import movieListTemplate from '../templates/card.hbs'
+import refs from '../services/refs'
+
 export default {
   baseURL: 'https://api.themoviedb.org/3',
   key: '?api_key=20f20d883cac0d777d3eec349954fec5',
@@ -9,7 +12,59 @@ export default {
   maxPage:0,
   four:4,
   query: 'blood',
-  // VIZEVAET FILMY PO ZAPROSY
+  fetchPopularMovies(){
+    const fetchGenres = this.fetchGenres();
+    const fetchFilms = this.fetchPopular();
+    return Promise.all([fetchGenres, fetchFilms])
+    .then(result => {
+        const genreList = result[0].genres;
+        const films = result[1].results;
+        // console.log(genreList);
+        const mappedFilms = [...films]
+        mappedFilms.map(elem =>{
+            // console.log(elem.original_title.length);
+            if(elem.poster_path === null){
+                elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
+            }else{
+                elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
+            }
+            elem.popularity = Math.round(elem.popularity);
+            if(elem.original_title.length > 35){
+                elem.original_title = elem.original_title.slice(0, 35)+'...';
+            }
+            elem.release_date = elem.release_date.slice(0,4);
+            elem.genre_ids = elem.genre_ids.map(genreNum =>{
+                const foundGenre = genreList.find(genreId =>{
+                    if(genreId.id === genreNum){
+                        return genreId.id;
+                    }
+                })
+                return foundGenre.name;
+            });
+            if(elem.genre_ids.length > 2){
+                elem.genre_ids = elem.genre_ids.slice(0,2)
+            };  
+        })
+        this.maxPage = result[1].total_pages;
+        // --- option
+        console.log(mappedFilms);
+        const reducedFilms = mappedFilms.reduce((str, elem)=>{
+            str += movieListTemplate(elem)
+            return str;
+        }, '');
+        
+        refs.movieList.innerHTML = reducedFilms;
+        // return mappedFilms
+    })
+    // .then(filmsArr =>{
+    //     const reducedFilms = filmsArr.reduce((str, elem)=>{
+    //         str += movieListTemplate(elem)
+    //         return str;
+    //     }, '');
+    //     refs.movieList.innerHTML = reducedFilms;
+    // })
+    
+  },
   fetchMovies(){ 
     const fetchGenres = this.fetchGenres();
     const fetchFilms = this.fetchFilms();
@@ -20,6 +75,14 @@ export default {
         // console.log(genreList);
         const mappedFilms = [...films]
         mappedFilms.map(elem =>{
+            // https://image.tmdb.org/t/p/w500
+            if(elem.poster_path === null){
+                elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
+            }else{
+                elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
+            }
+            elem.popularity = Math.round(elem.popularity);
+            elem.release_date = elem.release_date.slice(0,4);
             elem.genre_ids = elem.genre_ids.map(genreNum =>{
                 const foundGenre = genreList.find(genreId =>{
                     if(genreId.id === genreNum){
@@ -45,7 +108,7 @@ export default {
   },
   // VIZEVAET FILMY PO POPULIARNIM
   fetchPopular() {
-    const requestStr = `https://api.themoviedb.org/3/discover/movie?api_key=20f20d883cac0d777d3eec349954fec5&sort_by=popularity.desc` + this.page;
+    const requestStr = `https://api.themoviedb.org/3/discover/movie?api_key=20f20d883cac0d777d3eec349954fec5&sort_by=popularity.desc&year=2020` + this.page;
     return this.fetchRequest(requestStr);
   },
   // PEREVODIT V JSON NASHI ZAPROSY

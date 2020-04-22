@@ -2,6 +2,7 @@ import './header.css';
 import movie from '../../services/services';
 import movieListTemplate from '../../templates/card.hbs'
 import refs from '../../services/refs';
+import pagination from '../../components/pagination/pagination'
 
 
 const headerMarkup = `    <div class="header__main container">
@@ -43,27 +44,41 @@ function queryHandler(e) {
 //   console.log('searchQuery = ', searchQuery);  // TEMP!!!
   movie.query = searchQuery;
   console.log(movie.query);
-  movie.fetchMovies()
-  .then(films => {
-    return films
-})
-// movie.fetchFilms().then(films =>  {
-//     // console.log(films.results);
-//     return films.results
+  movie.page = 1;
+  pagination();
+
+
+//   movie.fetchMovies()
+
+
+//   .then(films => {
+//     return films
 // })
-.then(filmsArr =>{
-    return filmsArr.reduce((str, elem)=>{
-        str += movieListTemplate(elem)
-        return str;
-    }, '')
-})
-.then(string =>{
-    // console.log(string);
-    buildMarkUp(string);
-})
-function buildMarkUp(templateResult){
-    refs.movieList.innerHTML = templateResult;
+// .then(filmsArr =>{
+//     return filmsArr.reduce((str, elem)=>{
+//         str += movieListTemplate(elem)
+//         return str;
+//     }, '')
+// })
+// .then(string =>{
+//     // console.log(string);
+//     movie.page = 1;
+//     buildMarkUp(string);
+// })
+// function buildMarkUp(templateResult){
+//     refs.movieList.innerHTML = templateResult;
+// };
 }
 
-;
-}
+
+
+movie.fetchPopularMovies();
+
+
+// .then(filmsArr =>{
+//     const reducedFilms = filmsArr.reduce((str, elem)=>{
+//         str += movieListTemplate(elem)
+//         return str;
+//     }, '');
+//     refs.movieList.innerHTML = reducedFilms;
+// });

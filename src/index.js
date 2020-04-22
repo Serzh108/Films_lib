@@ -1,3 +1,4 @@
+import './components/watched/watched';  //Illya&Ylia
 import './stylesheet/main.css';
 import './components/buttons/buttons';
 // import './components/card/card';
@@ -9,15 +10,10 @@ import './components/header/header';
 import './components/localStorage/localStorage';
 import './components/pagination/pagination';
 
+import './components/pagination/pagination.css';
 
-
-
-
-
-
-// ----------- TIMUR
-// import movies from './services/services';
-import './components/pagination/pagination.css'
+// Illia
+import './components/card/card.css';
 
 
 // sortGeneres();

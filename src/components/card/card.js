@@ -2,6 +2,10 @@ import './card.css';
 import movieListTemplate from '../../templates/card.hbs'
 import refs from '../../services/refs';
 import movie from '../../services/services'
+// import myLibrary  from'../localStorage/localStorage'
+import watched from '../../components/watched/watched';
+
+
 
 export default ()=>{
     movie.fetchFilms().then(films =>  {
@@ -11,6 +15,7 @@ export default ()=>{
     .then(filmsArr =>{
         return filmsArr.reduce((str, elem)=>{
             str += movieListTemplate(elem)
+           
             return str;
         }, '')
     })
@@ -21,13 +26,6 @@ export default ()=>{
     function buildMarkUp(templateResult){
         refs.movieList.innerHTML = templateResult;
     }
-    
-    
+    watched()
+
 }
-
-
-
-
-
-
-// console.log(template);

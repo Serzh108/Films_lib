@@ -103,6 +103,7 @@ const myLibrary = {
     localStorage.setItem(key, JSON.stringify(result));
     this.itemArray = [];
   },
+  
 };
 
 export default myLibrary;

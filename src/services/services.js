@@ -13,6 +13,7 @@ export default {
         return this.fetchRequest(requestStr)
         .catch(error =>{
             console.log(error);
+          
         });
         // return this.fetch(requestStr);
     },

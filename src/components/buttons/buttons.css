@@ -6,6 +6,7 @@
 }
 
 .btn_details_wraper {
+  
 }
 
 .button_watched,
@@ -59,7 +60,7 @@
   border: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px){
   .button_watched,
   .button_queue {
     margin-right: 14px;
@@ -69,7 +70,6 @@
     margin-right: 0;
   }
   .btn_details_wraper {
-    /* ??? */
-    text-align: left;
+    /* text-align: left; */
   }
 }

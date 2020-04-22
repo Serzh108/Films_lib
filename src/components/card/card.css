@@ -1,9 +1,7 @@
 /* @import '../../stylesheet/main.css'; */
 /* @import '../../stylesheet/vars.css';
 @import '../../stylesheet/fonts.css' */
-ul {
-  list-style: none;
-}
+
 .filmsList {
   display: flex;
   flex-direction: column;
@@ -44,20 +42,29 @@ ul {
   background-color: #ff6b08;
   border-radius: 5px;
   padding: 0 10px;
+
+
 }
+
 .filmsList_description-item:not(:last-child) {
   padding-right: 5px;
+
 }
+
 @media screen and (min-width: 768px) {
   .filmsList {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .filmsList_item:nth-last-child(-n +2) {
     margin-bottom: 0px;
   }
+
+
 }
+
 @media screen and (min-width: 1024px) {
   .filmsList_item:nth-last-child(-n + 3) {
     margin-bottom: 0px;

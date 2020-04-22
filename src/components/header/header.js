@@ -1,6 +1,6 @@
 import './header.css';
 
-const headerMarkup = `    <div class="header__main container">
+const headerMarkup = `<div class="header__main container">
 <div href="#" class="header__logo js_header_logo">
   <img src="../../assets/images/icon_film_m.png" alt="logotype" width="22" height="22">
   <span>Filmoteka</span>
@@ -22,6 +22,7 @@ const headerMarkup = `    <div class="header__main container">
 <button class="button_watched">Watched</button>
 <button class="button_queue">Queue</button>
 </div>`;
+
 
 const headerMain = document.querySelector('.js_header');
 

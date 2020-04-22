@@ -12,6 +12,7 @@ html {
 body {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
+  min-height: 100vh;
 }
 
 *,

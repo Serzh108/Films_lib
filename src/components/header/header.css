@@ -1,27 +1,37 @@
 /*---Mobile---*/
 .header {
-  background-image: url(../../assets/images/header_bg_m_o.jpg);
+  background-image: url(../../assets/images/header_bg_m.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+.header.library {
+  background-image: url(../../assets/images/watched_bg_m.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.header.library {
-  background-image: url(../../assets/images/watched_bg_m_o.jpg);
+.header.details {
+  background-image: url(../../assets/images/details_bg_m.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-} 
-
- .header.details {
-  background-image: url(../../assets/images/details_bg_m_o.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding-bottom: 115px;
 }
 
 .header__main {
   display: flex;
   justify-content: space-between;
   padding-top: 46px;
-  padding-bottom: 44px;
+  padding-bottom: 42px;
+}
+
+.header__logo {
+  cursor: pointer;
+}
+
+.header__logo-svg {
+  stroke: rgb(128, 128, 128);
 }
 
 .header__logo span {
@@ -86,10 +96,6 @@
   display: block;
 }
 
-/* .header {
-  background-color: blue;
-} */
-
 .header_input {
   width: 100%;
   background-color: transparent;
@@ -133,9 +139,8 @@
 }
 
 /* .btn_details_wraper {
-  
-  
 } */
+
 .button_watched,
 .button_queue,
 .button_addwatched,
@@ -155,10 +160,26 @@
   height: 44px;
   cursor: pointer;
 }
+
+.button_watched.active,
+.button_queue.active,
+.button_addwatched.active,
+.button_addqueue.active {
+  background-color: var(--mainColor);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
 .button_watched:hover,
 .button_queue:hover,
 .button_addwatched:hover,
-.button_addqueue:hover {
+.button_addqueue:hover
+/* , */
+/* .button_watched.active,
+.button_queue.active,
+.button_addwatched.active,
+.button_addqueue.active */
+{ 
   background-color: var(--secondColor);
   color: rgb(255, 255, 255);
   border: none;
@@ -182,20 +203,40 @@
   border: none;
 }
 
+/*Button Vova*/
+.button_watched,
+.button_queue {
+  margin-right: 14px;
+  width: 136px;
+}
+.button_queue {
+  margin-right: 0;
+}
+.btn_details_wraper {
+  /* ??? */
+  text-align: left;
+}
+
 /*---Tablet---*/
 @media screen and (min-width: 768px) {
   .header {
-    background-image: url(../../assets/images/header_bg_t_o.jpg);
+    background-image: url(../../assets/images/header_bg_t.jpg);
+    margin-bottom: 54px;
+  }
+
+  .header__main {
+    padding-bottom: 44px;
   }
 
   .header.library {
-    background-image: url(../../assets/images/watched_bg_t_o.jpg);
-  } 
-  
-   .header.details {
-    background-image: url(../../assets/images/details_bg_t_o.jpg);
+    background-image: url(../../assets/images/watched_bg_t.jpg);
   }
-  
+
+  .header.details {
+    background-image: url(../../assets/images/details_bg_t.jpg);
+    padding-bottom: 110px;
+  }
+
   .search-input {
     padding-bottom: 51px;
   }
@@ -207,40 +248,25 @@
   .header__logo span {
     display: inline-block;
   }
-/*Input Vova*/
+  /*Input Vova*/
   .search_form {
     width: 340px;
   }
 }
 
-/*Button Vova*/
-.button_watched,
-  .button_queue {
-    margin-right: 14px;
-    width: 136px;
-  }
-  .button_queue {
-    margin-right: 0;
-  }
-  .btn_details_wraper {
-    /* ??? */
-    text-align: left;
-  }
-
 /*---Desktop---*/
 @media screen and (min-width: 1024px) {
   .header {
-    background-image: url(../../assets/images/header_bg_d_o.jpg);
+    background-image: url(../../assets/images/header_bg_d.jpg);
   }
 
   .header.library {
-    background-image: url(../../assets/images/watched_bg_d_o.jpg);
-  } 
-  
-   .header.details {
-    background-image: url(../../assets/images/details_bg_d_o.jpg);
+    background-image: url(../../assets/images/watched_bg_d.jpg);
   }
 
+  .header.details {
+    background-image: url(../../assets/images/details_bg_d.jpg);
+  }
 
   /*Input Vova*/
   /* .error_message {

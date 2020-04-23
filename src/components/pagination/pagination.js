@@ -12,7 +12,8 @@ export default ()=>{
 
 movie.fetchMovies().then(films => {
     if(!films.length){
-        refs.movieList.innerHTML = "<h1>NO SHIT SHERLOK</h1>"
+        // refs.movieList.innerHTML = "<h1>NO SHIT SHERLOK</h1>"
+        refs.movieList.innerHTML = `<img src="http://driveinstyle.lk/img/img_gif/no_result_found.gif" alt="zaglushka">`;
     };
     if(movie.maxPage > 1){
       movieList();

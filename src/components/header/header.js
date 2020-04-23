@@ -4,6 +4,8 @@ import movieListTemplate from '../../templates/card.hbs';
 import refs from '../../services/refs';
 import myLibrary from '../localStorage/localStorage'; // ???
 import pagination from '../../components/pagination/pagination'
+import watched from '../../components/watched/watched';
+
 
 const headerMarkup = `
 <div class="header__main container">
@@ -145,6 +147,8 @@ function setActiveItem(e) {
 
 // };
 
+watched();
+
 // ===============================================
 export default()=>{
   const liItems = headerList.children;
@@ -161,36 +165,39 @@ export default()=>{
   refs.headerMain.classList.add('details');
 }
 // // =============== For Illia ===============
-buttonWatched.addEventListener('click', clickButtonWatched);
-buttonQueue.addEventListener('click', clickButtonQueue);
 
-function clickButtonWatched() {
-  console.log('button Watched clicked!'); // temp!
-  buttonQueue.classList.remove('active');
-  buttonWatched.classList.remove('active');
+// buttonWatched.addEventListener('click', clickButtonWatched);
+// buttonQueue.addEventListener('click', clickButtonQueue);
 
-  buttonWatched.classList.add('active');
-  // call function read from LocalStorage & markUp
-  const watchedArray = myLibrary.getItemLocalStorage('watched');
-  console.log('watchedArray: ', watchedArray); // temp!
-  //temp!!!
-  refs.movieList.innerHTML = '';
-  refs.movieList.innerHTML = '<li>T E S T</li>';
-  // x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
-}
+// function clickButtonWatched() {
+//   console.log('button Watched clicked!'); // temp!
+//   buttonQueue.classList.remove('active');
+//   buttonWatched.classList.remove('active');
 
-function clickButtonQueue() {
-  console.log('button Queue clicked!'); // temp!
-  buttonWatched.classList.remove('active');
-  buttonQueue.classList.remove('active');
+//   buttonWatched.classList.add('active');
+//   // call function read from LocalStorage & markUp
+//   const watchedArray = myLibrary.getItemLocalStorage('watched');
+//   console.log('watchedArray: ', watchedArray); // temp!
+//   //temp!!!
+//   refs.movieList.innerHTML = '';
+//   refs.movieList.innerHTML = '<li>T E S T</li>';
+//   // x.insertAdjacentElement('afterbegin', movieListTemplate(watchedArray));
+// }
 
-  buttonQueue.classList.add('active');
-  // call function read from LocalStorage & markUp
-  const queueArray = myLibrary.getItemLocalStorage('queue');
-  console.log('queueArray: ', queueArray); // temp!
-}
+// function clickButtonQueue() {
+//   console.log('button Queue clicked!'); // temp!
+//   buttonWatched.classList.remove('active');
+//   buttonQueue.classList.remove('active');
+
+//   buttonQueue.classList.add('active');
+//   // call function read from LocalStorage & markUp
+//   const queueArray = myLibrary.getItemLocalStorage('queue');
+//   console.log('queueArray: ', queueArray); // temp!
+// }
 
 movie.fetchPopularMovies();
+
+
 
 
 

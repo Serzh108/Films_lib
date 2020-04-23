@@ -5,6 +5,7 @@ import refs from '../../services/refs';
 import myLibrary from '../localStorage/localStorage'; // ???
 import pagination from '../../components/pagination/pagination'
 import watched from '../../components/watched/watched';
+import { loadQueueFilms, test } from '../../components/watched/watched';
 
 
 const headerMarkup = `
@@ -134,6 +135,12 @@ function setActiveItem(e) {
     searchInput.classList.add('active');
   } else {
     buttonLib.classList.add('active');
+  }
+
+  if (e.target.dataset.position === "library"){
+    loadQueueFilms();
+    test();
+    console.log('queue');
   }
 }
 

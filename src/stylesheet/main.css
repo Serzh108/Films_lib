@@ -1,20 +1,16 @@
 @import './libs/normalize.css';
 @import './fonts.css';
 @import './vars.css';
-
 /* // COMPONENTS */
 /* @import '../components/buttons/buttons.css'; */
-
 html {
   box-sizing: border-box;
 }
-
 body {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   min-height: 100vh;
 }
-
 *,
 *::before,
 *::after {
@@ -22,37 +18,29 @@ body {
   margin: 0;
   padding: 0;
 }
-
 ​img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
 button:hover {
   cursor: pointer;
 }
-
 button:focus {
   outline: none;
 }
-
 a {
   display: block;
   text-decoration: none;
 }
-
 ul {
   list-style: none;
 }
-
 .container {
   width: 280px;
   margin: 0 auto;
 }
-
 /* MEDIQ QUERIES */
-
 @media screen and (min-width: 768px) {
   .container {
     width: 620px;
@@ -63,26 +51,20 @@ ul {
     width: 876px;
   }
 }
-
-
 /* PAGINATION */
-
-.heart-icon{
+.heart-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   height: 300px;
   width: 300px;
-  fill:  blue;
+  fill: blue;
 }
-
-.heart-icon:hover{
+.heart-icon:hover {
   fill: orange;
 }
-
 /*CLASS FOR TOGGLING DISPLAY NONE */
-
-.invisible{
+.invisible {
   display: none;
 }

@@ -11,7 +11,11 @@ export default () => {
 function loadWatchedFilms() {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
   let str = '';
-  
+  console.log('ser -> click buttonWatched');// 
+  document.querySelector('.button_queue').classList.remove('active');
+  document.querySelector('.button_watched').classList.remove('active');
+  document.querySelector('.button_watched').classList.add('active')
+
   watchedFilmsArray.forEach(film => {
     str += movieListTemplate(film);
   });
@@ -20,6 +24,10 @@ function loadWatchedFilms() {
 
 export function loadQueueFilms() {
   const QueueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
+  console.log('ser -> click buttonQueue'); // 
+  document.querySelector('.button_watched').classList.remove('active');
+  document.querySelector('.button_queue').classList.remove('active');
+  document.querySelector('.button_queue').classList.add('active');
 
   let str = '';
   QueueFilmsArray.forEach(film => {

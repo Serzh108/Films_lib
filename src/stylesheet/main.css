@@ -73,3 +73,12 @@ ul {
 .invisible {
   display: none;
 }
+
+
+.filmsList{
+  margin-bottom: 30px;
+}
+
+.page-list{
+  padding-bottom: 30px;
+}

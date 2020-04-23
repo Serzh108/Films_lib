@@ -10,19 +10,26 @@ export default () => {
 
 function loadWatchedFilms() {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
-  refs.movieList.innerHTML = '';
+  let str = '';
+  
   watchedFilmsArray.forEach(film => {
-    refs.movieList.innerHTML += movieListTemplate(film);
+    str += movieListTemplate(film);
   });
+  document.querySelector('.libList').innerHTML = str;
 }
 
 export function loadQueueFilms() {
   const QueueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
-  refs.movieList.innerHTML = '';
+
+  let str = '';
   QueueFilmsArray.forEach(film => {
-    refs.movieList.innerHTML += movieListTemplate(film);
+    str += movieListTemplate(film);
   });
+  document.querySelector('.jsLiblist').innerHTML = str;
   console.log('queue function done');
+  document.querySelector('.JsmovieListWrapper').classList.add('invisible');
+  document.querySelector('.jsLiblist').classList.remove('invisible');
+  document.querySelector('.singleMoviePreview').classList.add('invisible');
 }
 
 export function test(){

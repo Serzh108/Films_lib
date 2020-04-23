@@ -2,11 +2,11 @@ import './card.css';
 import movieListTemplate from '../../templates/card.hbs'
 import refs from '../../services/refs';
 import movie from '../../services/services'
+// import watched from '../../components/watched/watched';
 
 export default ()=>{
-    movie.fetchFilms().then(films =>  {
-        // console.log(films.results);
-        return films.results
+    movie.fetchMovies().then(films => {
+        return films
     })
     .then(filmsArr =>{
         return filmsArr.reduce((str, elem)=>{
@@ -21,7 +21,7 @@ export default ()=>{
     function buildMarkUp(templateResult){
         refs.movieList.innerHTML = templateResult;
     }
-    
+    // watched();
     
 }
 

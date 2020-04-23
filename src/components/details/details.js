@@ -1,16 +1,27 @@
+// import moviePreviewTemplate from '../../templates/movieDetailCard.hbs';
+// import movie from '../../services/services';
+// import refs from '../../services/refs';
+// import '../../components/details/details.css'
+// import changeHeaderBg from '../header/header';
+
+// export default {
+//   showMovieDetails(id) {
+//     console.log('click')
+//     changeHeaderBg();
+//     movie.fetchId(id).then(data => {
+//       refs.singleMoviePreview.innerHTML = moviePreviewTemplate(data);
+//     })
+//   }
+// }
+
 import moviePreviewTemplate from '../../templates/movieDetailCard.hbs';
 import movie from '../../services/services';
 import refs from '../../services/refs';
-import '../../components/details/details.css'
-import changeHeaderBg from '../header/header';
-
+import '../../components/details/details.css';
 export default {
   showMovieDetails(id) {
-    console.log('click')
-    changeHeaderBg();
-    movie.fetchId(id).then(data => {
-      refs.singleMoviePreview.innerHTML = moviePreviewTemplate(data);
-    })
+    render(id);
+  
   }
 }
 // ==================button first
@@ -61,6 +72,7 @@ function addToWatched(film) {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
   if (!watchedFilmsArray) {
     watchedFilmsArray = [];
+
   }
   watchedFilmsArray.push(film);
   localStorage.setItem("watched-films", JSON.stringify(watchedFilmsArray));
@@ -142,3 +154,4 @@ function deleteFromQueue(film) {
     addToQueue(film);
   });
 }
+

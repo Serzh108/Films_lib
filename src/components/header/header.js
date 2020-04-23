@@ -4,6 +4,8 @@ import movieListTemplate from '../../templates/card.hbs';
 import refs from '../../services/refs';
 import myLibrary from '../localStorage/localStorage'; // ???
 import pagination from '../../components/pagination/pagination'
+import watched from '../../components/watched/watched';
+
 
 const headerMarkup = `<div class="header__main container">
 <div href="#" class="header__logo js_header_logo">
@@ -128,6 +130,8 @@ function setActiveItem(e) {
 
 // };
 
+watched();
+
 // ===============================================
 export default()=>{
   const liItems = headerList.children;
@@ -144,6 +148,7 @@ export default()=>{
   refs.headerMain.classList.add('details');
 }
 // // =============== For Illia ===============
+
 // buttonWatched.addEventListener('click', clickButtonWatched);
 // buttonQueue.addEventListener('click', clickButtonQueue);
 
@@ -174,6 +179,8 @@ export default()=>{
 // }
 
 movie.fetchPopularMovies();
+
+
 
 
 

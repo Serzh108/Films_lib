@@ -1,0 +1,145 @@
+[33mcommit 85931c8bf08a465d6bb3e3c43acc5c7dd0de9090[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: Ghore <ghoreua@gmail.com>
+Date:   Wed Apr 22 22:21:53 2020 +0300
+
+    test
+
+[33mcommit a76daaa6935986dd850a11d6cbdae9f1c8b9557c[m
+Merge: a95ae77 6809327
+Author: Ghore <ghoreua@gmail.com>
+Date:   Tue Apr 21 09:20:08 2020 +0300
+
+    Merge branch 'dev' of https://github.com/Serzh108/Films_lib into dev
+
+[33mcommit 6809327ae0832c2b34d510702194ff2cffffbd02[m
+Author: AndreyKolo <58947343+AndreyKolo@users.noreply.github.com>
+Date:   Mon Apr 20 20:56:39 2020 +0300
+
+    Header (#6)
+    
+    * init header
+    
+    * add header.js
+    
+    Co-authored-by: AndreyKolo <https://github.com/AndreyKolo>
+
+[33mcommit a95ae77abbec622a503509baf2e1dcee71f1946a[m
+Merge: 9dcbb98 8791612
+Author: Ghore <ghoreua@gmail.com>
+Date:   Mon Apr 20 18:38:36 2020 +0300
+
+    ?
+
+[33mcommit 9dcbb9877f4a48876ab084081665b38e348964ca[m
+Author: Ghore <ghoreua@gmail.com>
+Date:   Mon Apr 20 18:32:34 2020 +0300
+
+    full CSS
+
+[33mcommit 879161272e05d4393ba846dd18f44ec52e9ecb22[m
+Author: BURZUMANE <1234tima.g@gmail.com>
+Date:   Mon Apr 20 18:23:38 2020 +0300
+
+    Pagination (#5)
+    
+    * paggination edition
+    
+    * pagination + card + details
+
+[33mcommit deae75444f63adb618e4bf8b309c3a875bc06a36[m
+Author: b-kievskiy <60388615+b-kievskiy@users.noreply.github.com>
+Date:   Mon Apr 20 17:50:38 2020 +0300
+
+    build footer request (#4)
+
+[33mcommit 6ea9d84539fde799cf3b9dd925f6ad534e51eec9[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Mon Apr 20 16:50:07 2020 +0300
+
+    Local storage (#3)
+    
+    * create TEST branch
+    
+    * add localStorage.js  - to work with localStorage. Test data are inside.
+
+[33mcommit 707fde878d920d8ed9f8e5b00d25056be021eee7[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Mon Apr 20 16:02:13 2020 +0300
+
+    delete all .html from components/...
+
+[33mcommit cea6a938df993f2e9e8b8dc5685326ba8f180022[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Mon Apr 20 15:03:56 2020 +0300
+
+    inintial dev before develop .js
+
+[33mcommit 5ce833ec72ca769b3c2665917802ac4d09288c21[m
+Merge: ad0eda8 8e624bf
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 16:18:55 2020 +0300
+
+    Merge pull request #1 from Serzh108/pagination
+    
+    delta
+
+[33mcommit 8e624bf6de7565d9614cce7698bb635f20dd64cd[m
+Merge: 51efe02 5d607bf
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 16:10:55 2020 +0300
+
+    Merge branch 'lstor' into pagination
+
+[33mcommit 5d607bf427fe58433f3b0dc693674b62c2e79439[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 16:02:21 2020 +0300
+
+    add
+
+[33mcommit 51efe0268728b9f2554285ebafac458bdbf1d943[m
+Author: Timur Zakirov <1234tima.g@gmail.com>
+Date:   Fri Apr 17 15:55:39 2020 +0300
+
+    delta
+
+[33mcommit ad0eda8ec986c23d251bf5fb9aaec515a633ecf5[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 13:31:59 2020 +0300
+
+    correction
+
+[33mcommit 7206eb6c607ac4e7c6e5b7b1a254a49597e47c24[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 13:30:02 2020 +0300
+
+    index.html correct
+
+[33mcommit 6b1663a0c5879652997d118961f4eb832cda0c1c[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 13:20:10 2020 +0300
+
+    add refs.js
+
+[33mcommit e88ec4e0af3f75531239d74188ba22ae350a8270[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 13:04:18 2020 +0300
+
+    add index.js corrections
+
+[33mcommit 973953d61a86241c349a2fa478f538bb984a1289[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Fri Apr 17 12:55:37 2020 +0300
+
+    Project v1.1
+
+[33mcommit c66c146feb570f7707eca18432c6887c59322f9f[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Serzh108 <serzh108@gmail.com>
+Date:   Thu Apr 16 22:09:16 2020 +0300
+
+    Project
+
+[33mcommit d5ad0f68329805fb80970bbbd3356c52c6f9daf6[m
+Author: Serzh108 <serzh@gabris.kiev.ua>
+Date:   Thu Apr 16 21:48:39 2020 +0300
+
+    Initial commit

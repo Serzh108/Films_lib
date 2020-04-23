@@ -5,20 +5,15 @@ import './components/buttons/buttons';
 import './components/contacts/contacts';
 import './components/details/details';
 import './components/footer/footer';
+import './components/footer/contact';
 import './components/form/form';
 import './components/localStorage/localStorage';
 import './components/pagination/pagination';
-
-
-
-
-
-
+import './components/watched/watched';
 
 // ----------- TIMUR
 import movies from './services/services';
-import './components/pagination/pagination.css'
-
+import './components/pagination/pagination.css';
 
 // sortGeneres();
 
@@ -42,7 +37,7 @@ import './components/pagination/pagination.css'
 //             },[]);
 //             console.log(finalGenres2);
 //         })
-        
+
 //     })
 // }
 
@@ -50,8 +45,6 @@ import './components/pagination/pagination.css'
 //     return arr.filter(elem => elem.id === id);
 // };
 
-
 // sortGeneres();
-
 
 // ----------------------------

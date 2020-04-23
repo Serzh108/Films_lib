@@ -6,10 +6,7 @@ import paginationNemplate from '../../templates/pagination.hbs';
 import paginationEnd from '../../templates/paginationEnd.hbs'
 import movieList from '../card/card';
 import movieDetails from '../../components/details/details';    
-
-
 export default ()=>{
-
 movie.fetchMovies().then(films => {
     if(!films.length){
         refs.movieList.innerHTML = "<h1>NO SHIT SHERLOK</h1>"

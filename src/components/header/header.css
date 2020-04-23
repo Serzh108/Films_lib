@@ -1,0 +1,222 @@
+/*---Mobile---*/
+.header {
+  background-image: url(../../assets/images/header_bg_m_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header.library {
+  background-image: url(../../assets/images/watched_bg_m_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+ .header.details {
+  background-image: url(../../assets/images/details_bg_m_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header__main {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 46px;
+  padding-bottom: 44px;
+}
+.header__logo span {
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  font-family: var(--main-font);
+  font-weight: 500;
+  display: none;
+}
+.header__list {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  list-style: none;
+  cursor: pointer;
+}
+.header__item {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-family: var(--main-font);
+  font-weight: 500;
+}
+.header__item {
+  color: #fff;
+}
+.header__item::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: var(--mainColor);
+  visibility: hidden;
+}
+/* .header__item-link:hover::after,
+.header__item-link:focus::after,  */
+.header__item.active::after {
+  visibility: visible;
+}
+/*Input Vova*/
+.search_form {
+  margin: 0 auto;
+  padding-bottom: 24px;
+}
+.search-input {
+  padding-bottom: 40px;
+  display: none;
+}
+.search-input.active {
+  display: block;
+}
+/* .header {
+  background-color: blue;
+} */
+.header_input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  background: url(../../assets/icons/search.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.header_input::placeholder {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  color: #fff;
+}
+.error_message {
+  color: rgb(255, 8, 37);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 300;
+  text-align: center;
+  opacity: 0;
+}
+.error_message.active {
+  opacity: 1;
+}
+/*Button Vova*/
+.header_btn_wraper {
+  display: flex;
+  justify-content: center;
+  padding-top: 2px;
+  padding-bottom: 69px;
+  display: none;
+}
+.header_btn_wraper.active {
+  display: flex;
+}
+/* .btn_details_wraper {
+  
+  
+} */
+.button_watched,
+.button_queue,
+.button_addwatched,
+.button_addqueue {
+  font-size: 12px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.333;
+  text-align: center;
+  /* margin: 0 auto; */
+  margin-right: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  width: 130px;
+  height: 44px;
+  cursor: pointer;
+}
+.button_watched:hover,
+.button_queue:hover,
+.button_addwatched:hover,
+.button_addqueue:hover {
+  background-color: var(--secondColor);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+.button_queue {
+  margin-right: 0;
+}
+.button_addwatched,
+.button_addqueue {
+  margin-right: 14px;
+  color: black;
+  width: 136px;
+}
+.button_addqueue {
+  width: 120px;
+  margin-right: 0;
+}
+.button_active {
+  background-color: var(--mainColor);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+/*---Tablet---*/
+@media screen and (min-width: 768px) {
+  .header {
+    background-image: url(../../assets/images/header_bg_t_o.jpg);
+  }
+  .header.library {
+    background-image: url(../../assets/images/watched_bg_t_o.jpg);
+  } 
+  
+   .header.details {
+    background-image: url(../../assets/images/details_bg_t_o.jpg);
+  }
+  
+  .search-input {
+    padding-bottom: 51px;
+  }
+  .header_btn_wraper {
+    padding-bottom: 64px;
+  }
+  .header__logo span {
+    display: inline-block;
+  }
+/*Input Vova*/
+  .search_form {
+    width: 340px;
+  }
+}
+/*Button Vova*/
+.button_watched,
+  .button_queue {
+    margin-right: 14px;
+    width: 136px;
+  }
+  .button_queue {
+    margin-right: 0;
+  }
+  .btn_details_wraper {
+    /* ??? */
+    text-align: left;
+  }
+/*---Desktop---*/
+@media screen and (min-width: 1024px) {
+  .header {
+    background-image: url(../../assets/images/header_bg_d_o.jpg);
+  }
+  .header.library {
+    background-image: url(../../assets/images/watched_bg_d_o.jpg);
+  } 
+  
+   .header.details {
+    background-image: url(../../assets/images/details_bg_d_o.jpg);
+  }
+  /*Input Vova*/
+  /* .error_message {
+    opacity: 1;
+  } */
+}

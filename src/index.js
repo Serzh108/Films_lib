@@ -8,6 +8,9 @@ import './components/form/form';
 import './components/header/header';
 import './components/localStorage/localStorage';
 import './components/pagination/pagination';
+import './components/watched/watched';
+import './components/watched/watched.css';
+
 
 
 

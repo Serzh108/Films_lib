@@ -8,8 +8,24 @@
   </head>
 
   <body>
-    <header class="header js_header">
-
+    <header class="header js_header container">
+    <!-- <div class="container"> -->
+      <form class="search_form">
+        <!-- <div class="search_input"> -->
+          <input type="text" name="search" class="header_input" placeholder="Поиск фильмов">
+          <!-- <button class="search_btn">
+              <img src="./assets/icons/search.svg" alt="">
+          </button> -->
+        <!-- </div> -->
+      </form>
+      <p class="error_message">Search result not successful. Enter the correct movie name and try again.</p>
+    <!-- </div> -->
+    <!-- <div class="header_btn_wraper">
+    <button class="button_watched">Watched</button><button class="button_queue">Queue</button>
+    </div> -->
+    <div class="btn_details_wraper">
+    <button class="button_addwatched button_active">Add to watched</button><button class="button_addqueue">Add to queue</button>
+    </div>  
     </header>
       <section class="main_section">
         <ul class="filmsList js_filmsList"></ul>

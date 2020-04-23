@@ -1,26 +1,41 @@
 import refs from '../../services/refs';
-import movieListTemplate from '../../templates/card.hbs'
+import movieListTemplate from '../../templates/card.hbs';
+
 export default () => {
   let buttonWatched = document.querySelector('.button_watched');
   const buttonQueue = document.querySelector('.button_queue');
   buttonWatched.addEventListener('click', loadWatchedFilms);
   buttonQueue.addEventListener('click', loadQueueFilms);
 }
+
 function loadWatchedFilms() {
-  console.log('gaf gaf gaf gaf');
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
-  refs.movieList.innerHTML = '';
+  let str = '';
+  
   watchedFilmsArray.forEach(film => {
-    refs.movieList.innerHTML += movieListTemplate(film);
+    str += movieListTemplate(film);
   });
+  document.querySelector('.libList').innerHTML = str;
 }
-function loadQueueFilms (){
-    const QueueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
-    refs.movieList.innerHTML = '';
-    QueueFilmsArray.forEach(film => {
-        refs.movieList.innerHTML += movieListTemplate(film);
-      });
+
+export function loadQueueFilms() {
+  const QueueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
+
+  let str = '';
+  QueueFilmsArray.forEach(film => {
+    str += movieListTemplate(film);
+  });
+  document.querySelector('.jsLiblist').innerHTML = str;
+  console.log('queue function done');
+  document.querySelector('.JsmovieListWrapper').classList.add('invisible');
+  document.querySelector('.jsLiblist').classList.remove('invisible');
+  document.querySelector('.singleMoviePreview').classList.add('invisible');
 }
+
+export function test(){
+  console.log('test function done');
+}
+
 /*function loadWatchedFilms() {
   let watchedIds = localStr.getLocalStorage("watched-films");
   console.log(watchedIds);

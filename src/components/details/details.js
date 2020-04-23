@@ -1,17 +1,30 @@
+// import moviePreviewTemplate from '../../templates/movieDetailCard.hbs';
+// import movie from '../../services/services';
+// import refs from '../../services/refs';
+// import '../../components/details/details.css'
+// import changeHeaderBg from '../header/header';
+
+// export default {
+//   showMovieDetails(id) {
+//     console.log('click')
+//     changeHeaderBg();
+//     movie.fetchId(id).then(data => {
+//       refs.singleMoviePreview.innerHTML = moviePreviewTemplate(data);
+//     })
+//   }
+// }
+
 import moviePreviewTemplate from '../../templates/movieDetailCard.hbs';
 import movie from '../../services/services';
 import refs from '../../services/refs';
 import '../../components/details/details.css';
-
 export default {
   showMovieDetails(id) {
     render(id);
   
   }
 }
-
 // ==================button first
-
 function render(id) {
   movie.fetchId(id).then(data => {
     refs.singleMoviePreview.innerHTML = moviePreviewTemplate(data);
@@ -59,6 +72,7 @@ function addToWatched(film) {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
   if (!watchedFilmsArray) {
     watchedFilmsArray = [];
+
   }
   watchedFilmsArray.push(film);
   localStorage.setItem("watched-films", JSON.stringify(watchedFilmsArray));
@@ -85,16 +99,13 @@ function deleteFromWatched(film) {
     addToWatched(film);
   });
 }
-
 // ------------------------------------------------------------------------
-
 function bindButtonsToAddQueue(film) {
   const addFilmsButton = document.querySelector('.button_addqueue');
   addFilmsButton.addEventListener('click', () => {
     addToQueue(film);
   });
 }
-
 function bindButtonsToRemoveQueue(film) {
   let addFilmsButton = document.querySelector('.button_addqueue');
   addFilmsButton.innerText = "delete";
@@ -103,7 +114,6 @@ function bindButtonsToRemoveQueue(film) {
     deleteFromQueue(film);
   });
 }
-
 function findFilmInLocalStorageQueue(film) {
   let queueFilms = JSON.parse(localStorage.getItem("queue-films"));
   if (!queueFilms) {
@@ -113,7 +123,6 @@ function findFilmInLocalStorageQueue(film) {
   console.log(findedQueueFilm);
   return findedQueueFilm;
 }
-
 function addToQueue(film) {
   // add to local storage
   let queueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
@@ -131,7 +140,6 @@ function addToQueue(film) {
     deleteFromQueue(film);
   });
 }
-
 function deleteFromQueue(film) {
   // remove from local storage 
   let queueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
@@ -146,3 +154,4 @@ function deleteFromQueue(film) {
     addToQueue(film);
   });
 }
+

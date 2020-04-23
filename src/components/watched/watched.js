@@ -20,12 +20,9 @@ function loadQueueFilms (){
         refs.movieList.innerHTML += movieListTemplate(film);
       });
 }
-
-
 /*function loadWatchedFilms() {
   let watchedIds = localStr.getLocalStorage("watched-films");
   console.log(watchedIds);
-
   let html = '';
   refs.movieList.innerHTML = '';
   for (let i = 0; i < watchedIds.length; i++) {

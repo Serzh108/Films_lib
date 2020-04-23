@@ -2,12 +2,11 @@
   color: red;
 }
  test */
-.header_btn_wraper {
+ .header_btn_wraper {
 }
-
 .btn_details_wraper {
+  
 }
-
 .button_watched,
 .button_queue,
 .button_addwatched,
@@ -27,7 +26,6 @@
   height: 44px;
   cursor: pointer;
 }
-
 .button_watched:hover,
 .button_queue:hover,
 .button_addwatched:hover,
@@ -36,29 +34,24 @@
   color: rgb(255, 255, 255);
   border: none;
 }
-
 .button_queue {
   margin-right: 0;
 }
-
 .button_addwatched,
 .button_addqueue {
   margin-right: 14px;
   color: black;
   width: 136px;
 }
-
 .button_addqueue {
   width: 120px;
   margin-right: 0;
 }
-
 .button_active {
   background-color: var(--mainColor);
   color: rgb(255, 255, 255);
   border: none;
 }
-
 @media screen and (min-width: 768px) {
   .button_watched,
   .button_queue {
@@ -70,6 +63,18 @@
   }
   .btn_details_wraper {
     /* ??? */
-    text-align: left;
+    /* text-align: left; */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+

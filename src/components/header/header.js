@@ -5,6 +5,7 @@ import refs from '../../services/refs';
 import myLibrary from '../localStorage/localStorage'; // ???
 import pagination from '../../components/pagination/pagination'
 import watched from '../../components/watched/watched';
+import { loadQueueFilms, test } from '../../components/watched/watched';
 
 
 const headerMarkup = `
@@ -104,8 +105,21 @@ const headerLogo = document.querySelector('.js_header_logo');
 headerLogo.addEventListener('click', getPop);
 
 function getPop(e){
+    document.querySelector('.jsLiblist').classList.add('invisible');
+    document.querySelector('.JsmovieListWrapper').classList.remove('invisible');
     console.log(e.target)
-    movie.fetchPopularMovies();
+    document.querySelector('.page-list').innerHTML = '';
+    movie.fetchPopularMovies()
+    document.querySelector('.singleMoviePreview').classList.add('invisible');
+    document.querySelector('.main_section').classList.remove('invisible');
+    document.querySelector('.js_header').classList.remove('details');
+    document.querySelector('.js_search-input').classList.add('active');
+    document.querySelector('.js_header_list').children[0].classList.add('active');
+    document.querySelector('.js_header_list').children[1].classList.remove('active');
+    document.querySelector('.js_header_btn_wraper').classList.remove('active');
+    document.querySelector('.search_form').reset();
+
+  
 }
 
 function setActiveItem(e) {
@@ -113,10 +127,8 @@ function setActiveItem(e) {
     return;
   }
   const liItems = headerList.children;
-
   liItems[0].classList.remove('active');
   liItems[1].classList.remove('active');
-
   e.target.classList.add('active');
 
   // === was details ===
@@ -130,15 +142,28 @@ function setActiveItem(e) {
   if (e.target.dataset.position !== 'home') {
     refs.headerMain.classList.add(e.target.dataset.position);
   }
-
   buttonLib.classList.remove('active');
   searchInput.classList.remove('active');
-
   if (e.target.dataset.position === 'home') {
     searchInput.classList.add('active');
+    // for home to remove lib
+    document.querySelector('.jsLiblist').classList.add('invisible');
+    document.querySelector('.JsmovieListWrapper').classList.remove('invisible');
   } else {
     buttonLib.classList.add('active');
   }
+
+  if (e.target.dataset.position === "library"){
+    loadQueueFilms();
+    test();
+    console.log('queue');
+  }
+
+  document.querySelector('.singleMoviePreview').classList.add('invisible');
+  document.querySelector('.main_section').classList.remove('invisible');
+  
+
+  // document.querySelector('.singleMoviePreview').style.display = "none";
 }
 
 // headerLogo.addEventListener('click', setPopularFilm);

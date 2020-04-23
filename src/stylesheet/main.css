@@ -46,11 +46,16 @@ ul {
     width: 620px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .container {
     width: 876px;
   }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> cdcd833e2a2af9d8b652121f920303e49e2beee9
 /* PAGINATION */
 .heart-icon {
   position: absolute;
@@ -67,4 +72,18 @@ ul {
 /*CLASS FOR TOGGLING DISPLAY NONE */
 .invisible {
   display: none;
+}
+
+
+.filmsList{
+  margin-bottom: 30px;
+}
+
+.page-list{
+  padding-bottom: 30px;
+}
+
+.advert{
+  width: 272px;
+  background-color: peachpuff;
 }

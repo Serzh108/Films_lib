@@ -122,3 +122,8 @@ main{
 .preLoader img{
   height: 350px;
 }
+
+
+.digit:hover, .page-ends:hover, .arrow:hover{
+  cursor: pointer;
+}

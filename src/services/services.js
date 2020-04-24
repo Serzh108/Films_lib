@@ -237,11 +237,11 @@ export default {
         <li class="filmsList_item" data-id="12312312344223423423423">
 <img clas="filmsList-item-img" src="https://i.pinimg.com/474x/4b/eb/65/4beb659d6cfa53ff9af80c298f6156a0.jpg" width="272" height="406" alt="first">
 
-<h2 class="filmsList_item-title">Your add could be here</h2>
+<h2 class="filmsList_item-title">Sponsored content</h2>
 <ul class="filmsList_decsription-wrapper">
-    <li class="filmsList_description-item">Google ads</li>
+    <li class="filmsList_description-item">by BOOTCAMP 19</li>
     <li class="filmsList_description-item">2020 </li>
-    <li class="filmsList_item-popular">9999</li>
+    <li class="filmsList_item-popular">24.04</li>
 </ul>
 </li>
         `

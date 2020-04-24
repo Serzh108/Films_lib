@@ -11,6 +11,9 @@ body {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 *,
 *::before,
@@ -53,10 +56,6 @@ ul {
     width: 876px;
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> cdcd833e2a2af9d8b652121f920303e49e2beee9
 /* PAGINATION */
 .heart-icon {
   position: absolute;

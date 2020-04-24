@@ -102,7 +102,7 @@ export default {
             elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
           }
           elem.popularity = elem.popularity.toFixed(1);
-
+          
           elem.release_date = elem.release_date.slice(0, 4);
           elem.genre_ids = elem.genre_ids.map(genreNum => {
             const foundGenre = genreList.find(genreId => {

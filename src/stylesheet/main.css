@@ -10,6 +10,9 @@ body {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 *,
 *::before,
@@ -46,11 +49,13 @@ ul {
     width: 620px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .container {
     width: 876px;
   }
 }
+
 /* PAGINATION */
 .heart-icon {
   position: absolute;
@@ -67,4 +72,17 @@ ul {
 /*CLASS FOR TOGGLING DISPLAY NONE */
 .invisible {
   display: none;
+}
+
+.filmsList {
+  margin-bottom: 30px;
+}
+
+.page-list {
+  padding-bottom: 30px;
+}
+
+.advert {
+  width: 272px;
+  background-color: peachpuff;
 }

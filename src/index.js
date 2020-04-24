@@ -1,4 +1,3 @@
-import './stylesheet/main.css';
 import './components/header/header';
 import './components/buttons/buttons';
 // import './components/card/card';
@@ -14,6 +13,8 @@ import './components/watched/watched';
 // ----------- TIMUR
 import movies from './services/services';
 import './components/pagination/pagination.css';
+
+import './stylesheet/main.css';
 
 // sortGeneres();
 

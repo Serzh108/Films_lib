@@ -1,5 +1,7 @@
 import refs from '../../services/refs';
 import movieListTemplate from '../../templates/card.hbs';
+import services from '../../services/services';
+
 
 export default () => {
   let buttonWatched = document.querySelector('.button_watched');
@@ -11,11 +13,6 @@ export default () => {
 function loadWatchedFilms() {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
   let str = '';
-  console.log('ser -> click buttonWatched');// 
-  document.querySelector('.button_queue').classList.remove('active');
-  document.querySelector('.button_watched').classList.remove('active');
-  document.querySelector('.button_watched').classList.add('active')
-
   watchedFilmsArray.forEach(film => {
     str += movieListTemplate(film);
   });
@@ -24,10 +21,7 @@ function loadWatchedFilms() {
 
 export function loadQueueFilms() {
   const QueueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
-  console.log('ser -> click buttonQueue'); // 
-  document.querySelector('.button_watched').classList.remove('active');
-  document.querySelector('.button_queue').classList.remove('active');
-  document.querySelector('.button_queue').classList.add('active');
+
 
   let str = '';
   QueueFilmsArray.forEach(film => {
@@ -38,6 +32,9 @@ export function loadQueueFilms() {
   document.querySelector('.JsmovieListWrapper').classList.add('invisible');
   document.querySelector('.jsLiblist').classList.remove('invisible');
   document.querySelector('.singleMoviePreview').classList.add('invisible');
+  // SINGE LIB ITEM PREVIEW
+  document.querySelector('.jsLiblist').addEventListener('click', services.handleListItemClick);
+
 }
 
 export function test(){

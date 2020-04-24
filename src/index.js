@@ -1,22 +1,19 @@
-import './stylesheet/main.css';
 import './components/header/header';
 import './components/buttons/buttons';
 // import './components/card/card';
 import './components/contacts/contacts';
 import './components/details/details';
 import './components/footer/footer';
+import './components/footer/contact';
 import './components/form/form';
 import './components/localStorage/localStorage';
 import './components/pagination/pagination';
 import './components/watched/watched';
 
-
-<<<<<<< HEAD
 import './components/pagination/pagination.css';
 
 // Illia
 import './components/card/card.css';
-=======
 
 
 
@@ -25,7 +22,14 @@ import './components/card/card.css';
 // ----------- TIMUR
 import movies from './services/services';
 import './components/pagination/pagination.css'
->>>>>>> 879161272e05d4393ba846dd18f44ec52e9ecb22
+
+
+// ----------- TIMUR
+import movies from './services/services';
+import './components/pagination/pagination.css';
+
+import './stylesheet/main.css';
+
 
 
 // sortGeneres();
@@ -50,7 +54,7 @@ import './components/pagination/pagination.css'
 //             },[]);
 //             console.log(finalGenres2);
 //         })
-        
+
 //     })
 // }
 
@@ -58,8 +62,6 @@ import './components/pagination/pagination.css'
 //     return arr.filter(elem => elem.id === id);
 // };
 
-
 // sortGeneres();
-
 
 // ----------------------------

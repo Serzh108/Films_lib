@@ -61,7 +61,7 @@ function bindButtonsToAdd(film) {
 }
 function bindButtonsToRemove(film) {
   let addFilmsButton = document.querySelector('.button_addwatched');
-  addFilmsButton.innerText = "delete";
+  addFilmsButton.innerText = "Delete";
   addFilmsButton.style = "background-color:red";
   addFilmsButton.addEventListener('click', () => {
     deleteFromWatched(film);
@@ -78,7 +78,7 @@ function addToWatched(film) {
   localStorage.setItem("watched-films", JSON.stringify(watchedFilmsArray));
   // change button style
   let addFilmsButton = document.querySelector('.button_addwatched');
-  addFilmsButton.innerText = "delete";
+  addFilmsButton.innerText = "Delete";
   addFilmsButton.style = "background-color:red";
   // change button event
   addFilmsButton.addEventListener('click', () => {
@@ -108,7 +108,7 @@ function bindButtonsToAddQueue(film) {
 }
 function bindButtonsToRemoveQueue(film) {
   let addFilmsButton = document.querySelector('.button_addqueue');
-  addFilmsButton.innerText = "delete";
+  addFilmsButton.innerText = "Delete";
   addFilmsButton.style = "background-color:red";
   addFilmsButton.addEventListener('click', () => {
     deleteFromQueue(film);
@@ -133,7 +133,7 @@ function addToQueue(film) {
   localStorage.setItem("queue-films", JSON.stringify(queueFilmsArray));
   // change button style
   let addButtonQueue = document.querySelector('.button_addqueue')
-  addButtonQueue.innerText = "delete";
+  addButtonQueue.innerText = "Delete";
   addButtonQueue.style = "background-color:red";
   // change button event
   addButtonQueue.addEventListener('click', () => {

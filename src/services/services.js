@@ -229,7 +229,6 @@ export default {
     document.querySelector('.jsLiblist').classList.add('invisible');
     changeHeaderBg();
     
-    
   },
   showAdvert(){
     if(window.innerWidth >= 1024){

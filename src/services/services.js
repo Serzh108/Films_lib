@@ -58,6 +58,7 @@ export default {
         refs.movieList.addEventListener('click', this.handleListItemClick);
         // return mappedFilms
       this.showAdvert();
+
       
       })
   },
@@ -88,8 +89,11 @@ export default {
                 return genreId.id;
               }
             })
+            
             return foundGenre.name;
+
           });
+
           if (elem.genre_ids.length > 2) {
             elem.genre_ids = elem.genre_ids.slice(0, 2)
           };
@@ -98,6 +102,7 @@ export default {
         // console.log(mappedFilms);
         this.maxPage = result[1].total_pages;
         refs.movieList.addEventListener('click', this.handleListItemClick);
+
 
 
         // -----------------

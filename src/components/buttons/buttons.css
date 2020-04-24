@@ -52,6 +52,13 @@
   color: rgb(255, 255, 255);
   border: none;
 }
+
+/* === my == */
+.button_delete {
+  color: rgb(255, 0, 0);
+  border: 1px solid rgb(255, 0, 0);;
+}
+
 @media screen and (min-width: 768px) {
   .button_watched,
   .button_queue {

@@ -14,6 +14,7 @@ if(type === "pop"){
 // movie.fetchFilms().then(data => console.log(data));
 movie.fetchFilms().then(films => {
     if(!films.results){
+
         // refs.movieList.innerHTML = "<h1>NO SHIT SHERLOK</h1>"
         refs.movieList.innerHTML = `<img src="http://driveinstyle.lk/img/img_gif/no_result_found.gif" alt="zaglushka">`
     };

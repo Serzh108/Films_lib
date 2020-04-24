@@ -2,6 +2,7 @@ import refs from '../../services/refs';
 import movieListTemplate from '../../templates/card.hbs';
 import services from '../../services/services';
 
+
 export default () => {
   let buttonWatched = document.querySelector('.button_watched');
   const buttonQueue = document.querySelector('.button_queue');
@@ -12,7 +13,6 @@ export default () => {
 function loadWatchedFilms() {
   let watchedFilmsArray = JSON.parse(localStorage.getItem("watched-films"));
   let str = '';
-  
   watchedFilmsArray.forEach(film => {
     str += movieListTemplate(film);
   });
@@ -21,6 +21,7 @@ function loadWatchedFilms() {
 
 export function loadQueueFilms() {
   const QueueFilmsArray = JSON.parse(localStorage.getItem("queue-films"));
+
 
   let str = '';
   QueueFilmsArray.forEach(film => {
@@ -33,6 +34,7 @@ export function loadQueueFilms() {
   document.querySelector('.singleMoviePreview').classList.add('invisible');
   // SINGE LIB ITEM PREVIEW
   document.querySelector('.jsLiblist').addEventListener('click', services.handleListItemClick);
+
 }
 
 export function test(){

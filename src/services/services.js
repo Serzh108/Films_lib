@@ -30,8 +30,8 @@ export default {
             elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
           }
           elem.popularity = elem.popularity.toFixed(1);
-          if (elem.original_title.length > 35) {
-            elem.original_title = elem.original_title.slice(0, 35) + '...';
+          if (elem.title.length > 35) {
+            elem.title = elem.title.slice(0, 35) + '...';
           }
           elem.release_date = elem.release_date.slice(0, 4);
           elem.genre_ids = elem.genre_ids.map(genreNum => {
@@ -68,8 +68,37 @@ export default {
           refs.singleMoviePreview.classList.remove('invisible');
           movieDetails.showMovieDetails(currentMovieId);
           changeHeaderBg();
+          
         }
         // return mappedFilms
+      
+      
+      
+        if(window.innerWidth >= 1024){
+          if([...document.querySelector('.js_filmsList').children].length%3!==0){
+            const markUp = `
+            <li class="filmsList_item" data-id="12312312344223423423423">
+    <img clas="filmsList-item-img" src="https://i.pinimg.com/474x/4b/eb/65/4beb659d6cfa53ff9af80c298f6156a0.jpg" width="272" height="406" alt="first">
+
+    <h2 class="filmsList_item-title">Your add could be here</h2>
+    <ul class="filmsList_decsription-wrapper">
+        <li class="filmsList_description-item">Google ads</li>
+        <li class="filmsList_description-item">2020 </li>
+        <li class="filmsList_item-popular">9999</li>
+    </ul>
+</li>
+            `
+            const li = document.createElement('li');
+            li.classList.add('filmsList_item');
+            li.innerHTML = markUp;
+            // const p = document.createElement('p');
+            // p.innerHTML = 'Your add could be here';
+            // li.appendChild(p);
+            document.querySelector('.js_filmsList').appendChild(li);
+          };
+      };  
+      
+      
       })
   },
   fetchMovies() {
@@ -97,8 +126,13 @@ export default {
                 return genreId.id;
               }
             })
+            
             return foundGenre.name;
           })
+          if (elem.genre_ids.length > 2) {
+            elem.genre_ids = elem.genre_ids.slice(0, 2)
+          };
+          elem.genre_ids = elem.genre_ids.slice(',').join(', ');
         })
         // console.log(mappedFilms);
         this.maxPage = result[1].total_pages;
@@ -146,7 +180,11 @@ export default {
     return fetch(requestStr)
       .then(response => response.json())
       .then(film => {
-        film.poster_path = 'https://image.tmdb.org/t/p/w500' + film.poster_path;
+        if (film.poster_path === null) {
+          film.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
+        } else {
+          film.poster_path = 'https://image.tmdb.org/t/p/w500' + film.poster_path;
+        }
         film.popularity = film.popularity.toFixed(1);
         film.release_date = film.release_date.slice(0, 4);
         return this.getExactGenres(film);

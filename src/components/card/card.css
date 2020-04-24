@@ -4,11 +4,17 @@
 ul {
   list-style: none;
 }
+
 .filmsList {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.filmsList_item{
+  cursor: pointer;
+}
+
 .filmsList_item:not(:last-child) {
   margin-bottom: 20px;
 }

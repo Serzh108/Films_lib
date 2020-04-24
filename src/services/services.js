@@ -13,108 +13,114 @@ export default {
   maxPage: 0,
   four: 4,
   query: 'blood',
-  fetchPopularMovies() {
-    const fetchGenres = this.fetchGenres();
-    const fetchFilms = this.fetchPopular();
-    return Promise.all([fetchGenres, fetchFilms])
-      .then(result => {
-        const genreList = result[0].genres;
-        const films = result[1].results;
-        // console.log(genreList);
-        const mappedFilms = [...films]
-        mappedFilms.map(elem => {
-          // console.log(elem.original_title.length);
-          if (elem.poster_path === null) {
-            elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
-          } else {
-            elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
-          }
-          elem.popularity = elem.popularity.toFixed(1);
-          if (elem.title.length > 35) {
-            elem.title = elem.title.slice(0, 35) + '...';
-          }
-          elem.release_date = elem.release_date.slice(0, 4);
-          elem.genre_ids = elem.genre_ids.map(genreNum => {
-            const foundGenre = genreList.find(genreId => {
-              if (genreId.id === genreNum) {
-                return genreId.id;
-              }
-            })
-            return foundGenre.name;
-          });
-          if (elem.genre_ids.length > 2) {
-            elem.genre_ids = elem.genre_ids.slice(0, 2)
-          };
-          elem.genre_ids = elem.genre_ids.slice(',').join(', ');
+  fetchPopularMovies(){
+    this.makePreLoader();
+    setTimeout(()=>{
+      const fetchGenres = this.fetchGenres();
+      const fetchFilms = this.fetchPopular();
+      return Promise.all([fetchGenres, fetchFilms])
+        .then(result => {
+          const genreList = result[0].genres;
+          const films = result[1].results;
+          // console.log(genreList);
+          const mappedFilms = [...films]
+          mappedFilms.map(elem => {
+            // console.log(elem.original_title.length);
+            if (elem.poster_path === null) {
+              elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
+            } else {
+              elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
+            }
+            elem.popularity = elem.popularity.toFixed(1);
+            if (elem.title.length > 35) {
+              elem.title = elem.title.slice(0, 35) + '...';
+            }
+            elem.release_date = elem.release_date.slice(0, 4);
+            elem.genre_ids = elem.genre_ids.map(genreNum => {
+              const foundGenre = genreList.find(genreId => {
+                if (genreId.id === genreNum) {
+                  return genreId.id;
+                }
+              })
+              return foundGenre.name;
+            });
+            if (elem.genre_ids.length > 2) {
+              elem.genre_ids = elem.genre_ids.slice(0, 2)
+            };
+            elem.genre_ids = elem.genre_ids.slice(',').join(', ');
+          })
+          this.maxPage = result[1].total_pages;
+          // --- option
+          console.log(mappedFilms);
+          const reducedFilms = mappedFilms.reduce((str, elem) => {
+            str += movieListTemplate(elem)
+            return str;
+          }, '');
+          refs.movieList.innerHTML = reducedFilms;
+          refs.movieList.addEventListener('click', this.handleListItemClick);
+          // return mappedFilms
+        this.showAdvert();
+        this.killPreLoader();
         })
-        this.maxPage = result[1].total_pages;
-        // --- option
-        console.log(mappedFilms);
-        const reducedFilms = mappedFilms.reduce((str, elem) => {
-          str += movieListTemplate(elem)
-          return str;
-        }, '');
-        refs.movieList.innerHTML = reducedFilms;
-        refs.movieList.addEventListener('click', this.handleListItemClick);
-        // return mappedFilms
-      this.showAdvert();
-      
-      })
+    },1200)
   },
   fetchMovies() {
-    const fetchGenres = this.fetchGenres();
-    const fetchFilms = this.fetchFilms();
-    return Promise.all([fetchGenres, fetchFilms])
-      .then(result => {
-        const genreList = result[0].genres;
-        const films = result[1].results;
-        // console.log(genreList);
-        const mappedFilms = [...films]
-        mappedFilms.map(elem => {
-          // console.log(elem.original_title.length);
-          if (elem.poster_path === null) {
-            elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
-          } else {
-            elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
-          }
-          elem.popularity = elem.popularity.toFixed(1);
-          if (elem.title.length > 35) {
-            elem.title = elem.title.slice(0, 35) + '...';
-          }
-          elem.release_date = elem.release_date.slice(0, 4);
-          elem.genre_ids = elem.genre_ids.map(genreNum => {
-            const foundGenre = genreList.find(genreId => {
-              if (genreId.id === genreNum) {
-                return genreId.id;
-              }
-            })
-            return foundGenre.name;
-          });
-          if (elem.genre_ids.length > 2) {
-            elem.genre_ids = elem.genre_ids.slice(0, 2)
-          };
-          elem.genre_ids = elem.genre_ids.slice(',').join(', ');
+    this.makePreLoader();
+    setTimeout(()=>{
+      const fetchGenres = this.fetchGenres();
+      const fetchFilms = this.fetchFilms();
+      return Promise.all([fetchGenres, fetchFilms])
+        .then(result => {
+          const genreList = result[0].genres;
+          const films = result[1].results;
+          // console.log(genreList);
+          const mappedFilms = [...films]
+          mappedFilms.map(elem => {
+            // console.log(elem.original_title.length);
+            if (elem.poster_path === null) {
+              elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
+            } else {
+              elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
+            }
+            elem.popularity = elem.popularity.toFixed(1);
+            if (elem.title.length > 35) {
+              elem.title = elem.title.slice(0, 35) + '...';
+            }
+            elem.release_date = elem.release_date.slice(0, 4);
+            elem.genre_ids = elem.genre_ids.map(genreNum => {
+              const foundGenre = genreList.find(genreId => {
+                if (genreId.id === genreNum) {
+                  return genreId.id;
+                }
+              })
+              return foundGenre.name;
+            });
+            if (elem.genre_ids.length > 2) {
+              elem.genre_ids = elem.genre_ids.slice(0, 2)
+            };
+            elem.genre_ids = elem.genre_ids.slice(',').join(', ');
+          })
+          // console.log(mappedFilms);
+          this.maxPage = result[1].total_pages;
+          refs.movieList.addEventListener('click', this.handleListItemClick);
+  
+  
+          // -----------------
+          // return mappedFilms
+          // -----------------
+          // ---NEW VERSION
+          const filmsArr = mappedFilms.reduce((str, elem)=>{
+            str += movieListTemplate(elem)
+            return str;
+        }, '');
+        buildMarkUp(filmsArr);
+        function buildMarkUp(templateResult){
+          refs.movieList.innerHTML = templateResult;
+        };
+        this.showAdvert();
+        this.killPreLoader();
         })
-        // console.log(mappedFilms);
-        this.maxPage = result[1].total_pages;
-        refs.movieList.addEventListener('click', this.handleListItemClick);
-
-
-        // -----------------
-        // return mappedFilms
-        // -----------------
-        // ---NEW VERSION
-        const filmsArr = mappedFilms.reduce((str, elem)=>{
-          str += movieListTemplate(elem)
-          return str;
-      }, '');
-      buildMarkUp(filmsArr);
-      function buildMarkUp(templateResult){
-        refs.movieList.innerHTML = templateResult;
-      };
-      this.showAdvert();
-      })
-
+    },1500)
   },
   fetchFilms() {
     const requestStr = this.baseURL + this.searchPoint + this.key + `&query='${this.query}'` + `&page=${this.page}`;
@@ -198,8 +204,12 @@ export default {
   getExactGenres(obj) {
     const genres = obj.genres;
     const readyFilms = obj;
-    const reducedGenres = genres.reduce((arr, elem) => {
-      arr.push(elem.name);
+    const reducedGenres = genres.reduce((arr, elem, index) => {
+      if(genres.length === index+1){
+        arr.push(elem.name)
+      }else{
+        arr.push(elem.name +', ');
+      }
       return arr;
     }, []);
     readyFilms.genres = reducedGenres;
@@ -246,6 +256,15 @@ export default {
       };
   };  
   },
+
+  makePreLoader(){
+    const loaderBody = document.createElement('div');
+    loaderBody.classList.add('preLoader');
+    document.querySelector('body').appendChild(loaderBody);
+  },
+  killPreLoader(){
+    document.querySelector('.preLoader').remove();
+  }
   // handleListItemClick(e) {
   //   if (e.target === e.currentTarget) return;
   //   let currentMovieId;

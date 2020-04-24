@@ -7,6 +7,7 @@ html {
   box-sizing: border-box;
 }
 body {
+  position: relative;
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   min-height: 100vh;
@@ -86,4 +87,39 @@ ul {
 .advert{
   width: 272px;
   background-color: peachpuff;
+}
+
+.singleMoviePreview{
+  padding-bottom: 40px;
+}
+
+main{
+  position: relative;
+}
+
+.preLoader{
+  background-color: rgba(0, 0, 0, 0.52);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+
+}
+
+.preLoader::after{
+  content: "";
+  display: block;
+  position: fixed;
+  height: 400px;
+  width: 400px;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background-image: url('https://cs9.pikabu.ru/images/big_size_comm_an/2017-01_4/148460760429564901.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.preLoader img{
+  height: 350px;
 }

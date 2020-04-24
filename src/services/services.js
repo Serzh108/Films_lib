@@ -71,14 +71,16 @@ export default {
         // console.log(genreList);
         const mappedFilms = [...films]
         mappedFilms.map(elem => {
-          // https://image.tmdb.org/t/p/w500
+          // console.log(elem.original_title.length);
           if (elem.poster_path === null) {
             elem.poster_path = 'https://i.pinimg.com/originals/c9/8c/78/c98c78f972e620b4d70d59bc53dc9644.gif'
           } else {
             elem.poster_path = 'https://image.tmdb.org/t/p/w500' + elem.poster_path;
           }
           elem.popularity = elem.popularity.toFixed(1);
-
+          if (elem.title.length > 35) {
+            elem.title = elem.title.slice(0, 35) + '...';
+          }
           elem.release_date = elem.release_date.slice(0, 4);
           elem.genre_ids = elem.genre_ids.map(genreNum => {
             const foundGenre = genreList.find(genreId => {
@@ -86,9 +88,8 @@ export default {
                 return genreId.id;
               }
             })
-            
             return foundGenre.name;
-          })
+          });
           if (elem.genre_ids.length > 2) {
             elem.genre_ids = elem.genre_ids.slice(0, 2)
           };
@@ -96,23 +97,24 @@ export default {
         })
         // console.log(mappedFilms);
         this.maxPage = result[1].total_pages;
-        refs.movieList.addEventListener('click', handleListItemClick);
+        refs.movieList.addEventListener('click', this.handleListItemClick);
 
-        function handleListItemClick(e) {
-          if (e.target === e.currentTarget) return;
-          let currentMovieId;
-          if (e.target.nodeName !== 'LI') {
-            currentMovieId = e.target.closest('li').dataset.id;
-          } else {
-            currentMovieId = e.target.closest('ul').closest('li').dataset.id;
-          }
-          refs.mainSection.classList.add('invisible');
-          refs.singleMoviePreview.classList.remove('invisible');
-          movieDetails.showMovieDetails(currentMovieId);
-        }
+
         // -----------------
-        return mappedFilms
+        // return mappedFilms
+        // -----------------
+        // ---NEW VERSION
+        const filmsArr = mappedFilms.reduce((str, elem)=>{
+          str += movieListTemplate(elem)
+          return str;
+      }, '');
+      buildMarkUp(filmsArr);
+      function buildMarkUp(templateResult){
+        refs.movieList.innerHTML = templateResult;
+      };
+      this.showAdvert();
       })
+
   },
   fetchFilms() {
     const requestStr = this.baseURL + this.searchPoint + this.key + `&query='${this.query}'` + `&page=${this.page}`;
@@ -214,7 +216,9 @@ export default {
     refs.mainSection.classList.add('invisible');
     refs.singleMoviePreview.classList.remove('invisible');
     movieDetails.showMovieDetails(currentMovieId);
+    document.querySelector('.jsLiblist').classList.add('invisible');
     changeHeaderBg();
+    
     
   },
   showAdvert(){
@@ -241,5 +245,20 @@ export default {
         document.querySelector('.js_filmsList').appendChild(li);
       };
   };  
-  }
+  },
+  // handleListItemClick(e) {
+  //   if (e.target === e.currentTarget) return;
+  //   let currentMovieId;
+  //   if (e.target.nodeName !== 'LI') {
+  //     currentMovieId = e.target.closest('li').dataset.id;
+  //   } else {
+  //     currentMovieId = e.target.closest('ul').closest('li').dataset.id;
+  //   }
+  //   refs.mainSection.classList.add('invisible');
+  //   refs.singleMoviePreview.classList.remove('invisible');
+  //   movieDetails.showMovieDetails(currentMovieId);
+    
+  // },
+
+  
 }

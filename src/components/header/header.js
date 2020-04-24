@@ -77,26 +77,7 @@ function queryHandler(e) {
   //   console.log('searchQuery = ', searchQuery);  // TEMP!!!
   movie.query = searchQuery;
   movie.page = 1;
-  movie
-    .fetchMovies()
-    .then(films => {
-      return films;
-    })
-    .then(filmsArr => {
-      return filmsArr.reduce((str, elem) => {
-        str += movieListTemplate(elem);
-        return str;
-      }, '');
-    })
-    .then(string => {
-      // console.log(string);
-      buildMarkUp(string);
-    });
-
-  function buildMarkUp(templateResult) {
-    refs.movieList.innerHTML = templateResult;
-  }
-
+  movie.fetchMovies();
   pagination();
 
 }
@@ -107,7 +88,6 @@ headerLogo.addEventListener('click', getPop);
 function getPop(e){
     document.querySelector('.jsLiblist').classList.add('invisible');
     document.querySelector('.JsmovieListWrapper').classList.remove('invisible');
-    console.log(e.target)
     document.querySelector('.page-list').innerHTML = '';
     movie.fetchPopularMovies()
     document.querySelector('.singleMoviePreview').classList.add('invisible');
@@ -221,7 +201,7 @@ export default()=>{
 // }
 
 movie.fetchPopularMovies();
-
+pagination('pop');
 
 
 

@@ -8,19 +8,6 @@ export default ()=>{
     movie.fetchMovies().then(films => {
         return films
     })
-    .then(filmsArr =>{
-        return filmsArr.reduce((str, elem)=>{
-            str += movieListTemplate(elem)
-            return str;
-        }, '')
-    })
-    .then(string =>{
-        // console.log(string);
-        buildMarkUp(string);
-    })
-    function buildMarkUp(templateResult){
-        refs.movieList.innerHTML = templateResult;
-    }
     // watched();
     
 }

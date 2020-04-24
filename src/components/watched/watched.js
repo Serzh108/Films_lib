@@ -1,5 +1,6 @@
 import refs from '../../services/refs';
 import movieListTemplate from '../../templates/card.hbs';
+import services from '../../services/services';
 
 export default () => {
   let buttonWatched = document.querySelector('.button_watched');
@@ -30,6 +31,8 @@ export function loadQueueFilms() {
   document.querySelector('.JsmovieListWrapper').classList.add('invisible');
   document.querySelector('.jsLiblist').classList.remove('invisible');
   document.querySelector('.singleMoviePreview').classList.add('invisible');
+  // SINGE LIB ITEM PREVIEW
+  document.querySelector('.jsLiblist').addEventListener('click', services.handleListItemClick);
 }
 
 export function test(){

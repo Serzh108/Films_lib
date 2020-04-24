@@ -20,8 +20,18 @@ import refs from '../../services/refs';
 import '../../components/details/details.css';
 export default {
   showMovieDetails(id) {
-    render(id);
-  
+    movie.makePreLoader()
+    render(id)
+    const promise = new Promise((resolve) => {
+      setTimeout(()=>{
+        resolve('ok');
+      },1200);
+    });
+    promise.then(resolve =>{
+      movie.killPreLoader()
+    });
+    
+
   }
 }
 // ==================button first
@@ -61,8 +71,8 @@ function bindButtonsToAdd(film) {
 }
 function bindButtonsToRemove(film) {
   let addFilmsButton = document.querySelector('.button_addwatched');
-  addFilmsButton.innerText = "delete";
-  addFilmsButton.style = "background-color:red";
+  addFilmsButton.innerText = "Delete";
+  // addFilmsButton.style = "background-color:red";
   addFilmsButton.addEventListener('click', () => {
     deleteFromWatched(film);
   });
@@ -78,8 +88,11 @@ function addToWatched(film) {
   localStorage.setItem("watched-films", JSON.stringify(watchedFilmsArray));
   // change button style
   let addFilmsButton = document.querySelector('.button_addwatched');
-  addFilmsButton.innerText = "delete";
-  addFilmsButton.style = "background-color:red";
+  addFilmsButton.innerText = "Delete";
+  // addFilmsButton.style = "background-color:red";
+  addFilmsButton.classList.remove('button_active');// my
+  addFilmsButton.classList.remove('active');// my
+  addFilmsButton.classList.add('button_delete');// my
   // change button event
   addFilmsButton.addEventListener('click', () => {
     deleteFromWatched(film);
@@ -93,7 +106,9 @@ function deleteFromWatched(film) {
   // change button style
   let addFilmsButton = document.querySelector('.button_addwatched');
   addFilmsButton.innerText ="add in watched"
-  addFilmsButton.style = "background-color:#ff6b08";
+  // addFilmsButton.style = "background-color:#ff6b08";
+  addFilmsButton.classList.remove('button_delete');// my
+  addFilmsButton.classList.add('active'); // my
   // change button event
   addFilmsButton.addEventListener('click', () => {
     addToWatched(film);
@@ -108,8 +123,8 @@ function bindButtonsToAddQueue(film) {
 }
 function bindButtonsToRemoveQueue(film) {
   let addFilmsButton = document.querySelector('.button_addqueue');
-  addFilmsButton.innerText = "delete";
-  addFilmsButton.style = "background-color:red";
+  addFilmsButton.innerText = "Delete";
+  // addFilmsButton.style = "background-color:red";
   addFilmsButton.addEventListener('click', () => {
     deleteFromQueue(film);
   });
@@ -133,8 +148,10 @@ function addToQueue(film) {
   localStorage.setItem("queue-films", JSON.stringify(queueFilmsArray));
   // change button style
   let addButtonQueue = document.querySelector('.button_addqueue')
-  addButtonQueue.innerText = "delete";
-  addButtonQueue.style = "background-color:red";
+  addButtonQueue.innerText = "Delete";
+  // addButtonQueue.style = "background-color:red";
+  addButtonQueue.classList.remove('active');// my
+  addButtonQueue.classList.add('button_delete');// my
   // change button event
   addButtonQueue.addEventListener('click', () => {
     deleteFromQueue(film);
@@ -148,7 +165,9 @@ function deleteFromQueue(film) {
   // change button style
   let addButtonQueue = document.querySelector('.button_addqueue');
   addButtonQueue.innerText ="add in queue"
-  addButtonQueue.style = "background-color:#ff6b08";
+  // addButtonQueue.style = "background-color:#ff6b08";
+    addButtonQueue.classList.remove('button_delete');// my
+addButtonQueue.classList.add('active'); // my
   // change button event
   addButtonQueue.addEventListener('click', () => {
     addToQueue(film);

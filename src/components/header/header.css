@@ -177,6 +177,7 @@
   color: black;
   width: 136px;
 }
+
 .button_addqueue {
   width: 120px;
   margin-right: 0;
@@ -186,6 +187,11 @@
   color: rgb(255, 255, 255);
   border: none;
 }
+
+.button_delete {
+  color: rgb(255, 0, 0);
+}
+
 
 /*Button Vova*/
 .button_watched,

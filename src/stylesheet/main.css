@@ -52,10 +52,6 @@ ul {
     width: 876px;
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> cdcd833e2a2af9d8b652121f920303e49e2beee9
 /* PAGINATION */
 .heart-icon {
   position: absolute;
@@ -72,4 +68,5 @@ ul {
 /*CLASS FOR TOGGLING DISPLAY NONE */
 .invisible {
   display: none;
+  display: flex;
 }

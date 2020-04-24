@@ -43,6 +43,7 @@ movie.fetchMovies().then(films => {
               const markUp = paginationEnd(preTemplateObj);
               console.log('markUp')
               // movie.page = Number(button.innerHTML);
+              movieList();
               insertMarkUp(markUp);
               const listItems = refs.pagination.querySelectorAll('li');
                   listItems.forEach(item =>{
@@ -74,6 +75,7 @@ movie.fetchMovies().then(films => {
                           item.classList.add('page-list__item-active');
                       }
                   });
+              movieList();
               return;
           }
           if(movie.page > 5){
@@ -126,6 +128,7 @@ movie.fetchMovies().then(films => {
                           item.classList.add('page-list__item-active');
                       }
                   });
+              movieList();
               return;
           }
           if(movie.page < 5){

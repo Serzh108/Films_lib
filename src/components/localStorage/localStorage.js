@@ -33,7 +33,7 @@ const next = {
   release_date: 2015,
 };
 
-// let itemArray = [];
+// // let itemArray = [];
 
 // setLocalStorage('watched', watched);
 // myLibrary.setLocalStorage('watched', queue);
@@ -44,15 +44,15 @@ const next = {
 // myLibrary.setLocalStorage('queue', next);
 // getLocalStorage('queue');
 
-// const x2 = getItemLocalStorage('watched', 1);
-// const x3 = getItemLocalStorage('queue');
-// console.log('query watched id=1 :', x2);
-// console.log('query queue no id :', x3);
+// // const x2 = getItemLocalStorage('watched', 1);
+// // const x3 = getItemLocalStorage('queue');
+// // console.log('query watched id=1 :', x2);
+// // console.log('query queue no id :', x3);
 
-// deleteItemLocalStorage('queue', 2);
+// // deleteItemLocalStorage('queue', 2);
 
-// ==============  /for TEST =================
-// ======================= object ============
+// // ==============  /for TEST =================
+// // ======================= object ============
 const myLibrary = {
   itemArray: [],
 
@@ -61,9 +61,11 @@ const myLibrary = {
     if (item !== null) {
       this.itemArray = JSON.parse(item);
     }
-    this.itemArray.push(value);
-    localStorage.setItem(key, JSON.stringify(this.itemArray));
-    this.itemArray = [];
+    if (!this.itemArray.includes(value)) {
+      this.itemArray.push(value);
+      localStorage.setItem(key, JSON.stringify(this.itemArray));
+      this.itemArray = [];
+    }
   },
 
   getLocalStorage(key) {
@@ -87,23 +89,23 @@ const myLibrary = {
     } else {
       result = this.itemArray.find(el => id === el.id);
     }
+
     this.itemArray = [];
     return result;
   },
 
-  deleteItemLocalStorage(key, id) {
-    const item = localStorage.getItem(key);
-    if (item !== null) {
-      this.itemArray = JSON.parse(item);
-    } else {
-      const err = 'Not finded!';
-      return err;
-    }
-    const result = this.itemArray.filter(el => el.id !== id);
-    localStorage.setItem(key, JSON.stringify(result));
-    this.itemArray = [];
-  },
-  
+deleteItemLocalStorage(key, id) {
+  const item = localStorage.getItem(key);
+  if (item !== null) {
+    this.itemArray = JSON.parse(item);
+  } else {
+    const err = 'Not finded!';
+    return err;
+  }
+  const result = this.itemArray.filter(el => el.id !== id);
+  localStorage.setItem(key, JSON.stringify(result));
+  this.itemArray = [];
+},
 };
 
 export default myLibrary;

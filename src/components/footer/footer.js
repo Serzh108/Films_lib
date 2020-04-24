@@ -29,6 +29,6 @@ footer.insertAdjacentHTML(
           />
         </svg>
         <p class="footer__text margin-text">by</p>
-        <a class="footer__text footer__link" href="#">GoIT Students</a>
+        <a class="footer__text footer__link">GoIT Students</a>
       </div>`,
 );

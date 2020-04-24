@@ -10,6 +10,9 @@ body {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 *,
 *::before,
@@ -72,4 +75,18 @@ ul {
 /*CLASS FOR TOGGLING DISPLAY NONE */
 .invisible {
   display: none;
+}
+
+
+.filmsList{
+  margin-bottom: 30px;
+}
+
+.page-list{
+  padding-bottom: 30px;
+}
+
+.advert{
+  width: 272px;
+  background-color: peachpuff;
 }
